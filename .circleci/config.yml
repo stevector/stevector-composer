@@ -153,9 +153,6 @@ jobs:
         steps:
             - checkout
             - run:
-                name: curl check
-                command: apt-get install -y curl
-            - run:
                 name: dependencies
                 command: ./.circleci/set-up-global-vars.sh
             - run:
