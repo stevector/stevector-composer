@@ -160,7 +160,7 @@ workflows:
        #         - build
 
       # Run Behat tests after deploy so they can be done on Pantheon
-      - behat_test:
-            requires:
-                - build
-                - build_and_deploy
+#      - behat_test:
+#            requires:
+#                - build
+#                - build_and_deploy
