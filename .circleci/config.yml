@@ -153,7 +153,7 @@ jobs:
             - checkout
             - run:
                 name: lighthouse
-                command: lighthouse https://www.stevector.com/
+                command: lighthouse  --chrome-flags="--headless --disable-gpu" https://www.stevector.com/
 
 workflows:
   version: 2
@@ -162,14 +162,4 @@ workflows:
       # Install dev dependencies
       - build
       - lighthouse
-      # Build and deploy
-      - build_and_deploy
-      # Code sniff and unit text first
-      - code_sniff_unit_test:
-            requires:
-                - build
-      # Run Behat tests after deploy so they can be done on Pantheon
-      - behat_test:
-            requires:
-                - build
-                - build_and_deploy
+      
