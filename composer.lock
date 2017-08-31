@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e269db3f37e455480839fc22ac1df9e4",
+    "content-hash": "acf676ed6686b1fa460f8bb60e3f3d63",
     "packages": [
         {
             "name": "composer/installers",
@@ -351,6 +351,48 @@
             "time": "2016-09-01T10:05:43+00:00"
         },
         {
+            "name": "wpackagist-plugin/debug-bar",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/debug-bar/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/debug-bar.zip?timestamp=1494849576",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/debug-bar/",
+            "time": "2017-05-15T12:59:36+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/debug-bar-timber",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/debug-bar-timber/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/debug-bar-timber.zip?timestamp=1471999092",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/debug-bar-timber/",
+            "time": "2016-08-24T01:38:12+00:00"
+        },
+        {
             "name": "wpackagist-plugin/dependency-minification",
             "version": "dev-trunk",
             "source": {
@@ -465,7 +507,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wp-github-sync.zip?timestamp=1499034061",
-                "reference": null,
+                "reference": "trunk",
                 "shasum": null
             },
             "require": {
@@ -4523,6 +4565,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "wpackagist-plugin/debug-bar": 20,
+        "wpackagist-plugin/debug-bar-timber": 20,
         "wpackagist-plugin/dependency-minification": 20,
         "wpackagist-plugin/redirection": 20,
         "wpackagist-plugin/timber": 20,
