@@ -153,6 +153,9 @@ jobs:
         steps:
             - checkout
             - run:
+                name: curl check
+                command: curl -I http://stevector.com
+            - run:
                 name: dependencies
                 command: ./.circleci/set-up-global-vars.sh
             - run:
