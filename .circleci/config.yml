@@ -167,4 +167,5 @@ workflows:
       # Install dev dependencies
       - build
       - lighthouse
-      
+      - build_and_deploy
+            # Run Behat tests after deploy so they can be done on Pantheon
