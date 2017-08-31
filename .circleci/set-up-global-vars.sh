@@ -16,6 +16,11 @@ echo 'export BRANCH=$(echo $CIRCLE_BRANCH | grep -v '"'"'^\(master\|[0-9]\+.x\)$
 echo 'export PR_ENV=${BRANCH:+pr-$BRANCH}' >> $BASH_ENV
 echo 'export CIRCLE_ENV=ci-$CIRCLE_BUILD_NUM' >> $BASH_ENV
 # If we are on a pull request
+
+
+echo ${CIRCLE_PULL_REQUEST}
+
+
 if [[ ${CIRCLE_BRANCH} != "master" && -z ${CIRCLE_PULL_REQUEST} ]]
 then
 	# Then use a pr- branch/multidev
