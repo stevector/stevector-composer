@@ -3,7 +3,7 @@
 set -ex
 
 
-+echo ${CIRCLE_PULL_REQUEST}
+echo ${CIRCLE_PULL_REQUEST}
 
 PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
 
