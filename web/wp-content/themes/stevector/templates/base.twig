@@ -1,0 +1,46 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig"><div id="page-wrapper"><div id="page">
+			{% block header %}
+        <header class="page-header">
+          <h1><a href="/">{{ site.title }}</a></h1>
+          <p>
+          You're reading the blog of Steve Persch. This is where I write about Drupal, Jekyll, and anything else that comes to mind.
+          </p>
+        </header>
+			{% endblock %}
+
+		<section id="content" role="main" class="content-wrapper">
+			{% if title %}<h1>{{title}}</h1>{% endif %}
+			<div class="wrapper {{sidebar_class}}">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+
+
+	</div></div>
+
+	<script>
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+
+	</body>
+</html>
