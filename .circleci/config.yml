@@ -153,9 +153,11 @@ workflows:
       # Build and deploy
       - build_and_deploy
       # Code sniff and unit text first
-      - code_sniff_unit_test:
-            requires:
-                - build
+
+     # todo, bring back this job https://github.com/stevector/stevector-composer/issues/2
+     # - code_sniff_unit_test:
+      #      requires:
+       #         - build
       # Run Behat tests after deploy so they can be done on Pantheon
       - behat_test:
             requires:

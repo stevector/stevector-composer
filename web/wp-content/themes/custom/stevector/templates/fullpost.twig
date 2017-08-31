@@ -1,0 +1,20 @@
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<h2>{% block title %}{{post.title}}{% endblock %}</h2>
+				<p>
+				Published {{ post.post_date|date('j F Y')}}
+				</p>
+
+				    {% if post.thumbnail.src %}
+				    <div class="page-main-image-wrapper">
+     				      <img  class="page-main-image" src="{{post.thumbnail.src}}" />
+    				    </div>
+				    {% endif %}
+
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
