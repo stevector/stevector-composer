@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "acf676ed6686b1fa460f8bb60e3f3d63",
+    "content-hash": "df0a429b9f0e0775e83b4fcf0ff43988",
     "packages": [
         {
             "name": "composer/installers",
@@ -453,27 +453,6 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/redirection/",
             "time": "2017-08-26T10:30:21+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/timber",
-            "version": "dev-trunk",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/timber/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber.zip?timestamp=1239215776",
-                "reference": "trunk",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/timber/",
-            "time": "2009-04-08T19:36:16+00:00"
         },
         {
             "name": "wpackagist-plugin/wp-cfm",
@@ -4569,7 +4548,6 @@
         "wpackagist-plugin/debug-bar-timber": 20,
         "wpackagist-plugin/dependency-minification": 20,
         "wpackagist-plugin/redirection": 20,
-        "wpackagist-plugin/timber": 20,
         "wpackagist-plugin/wp-cfm": 20,
         "wpackagist-plugin/wp-github-sync": 20,
         "roave/security-advisories": 20,
