@@ -152,6 +152,9 @@ jobs:
         steps:
             - checkout
             - run:
+                name: dependencies
+                command: ./.circleci/set-up-global-vars.sh
+            - run:
                 name: lighthouse
                 command: ./.circleci/lighthouse.sh
             - store_artifacts:
