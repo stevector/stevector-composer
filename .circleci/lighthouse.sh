@@ -2,9 +2,6 @@
 
 set -ex
 
-# todo, rather than apt-getting curl here, it might be enough to save the artifact and let a later job do all the reporting.
-apt-get curl
-
 PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
 
 mkdir /tmp/lighthouse-report
