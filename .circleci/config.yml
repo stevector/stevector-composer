@@ -157,7 +157,7 @@ jobs:
                 
                 
         - store_artifacts:
-              path: /tmp/lighthouse-report
+            path: /tmp/lighthouse-report
 
 workflows:
   version: 2
