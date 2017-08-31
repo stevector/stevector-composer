@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{% set post = posts.0 %}
+
+	{% set post = posts.0 %}
+  {% embed "fullpost.twig" %}
+	{# Embedding might be overkill as opposed to variable assignment. But I just
+	   wanted to try embedding.
+   #}
+	  {% block title %}<a href="{{ post.permalink }}">{{post.title}}</a>{% endblock %}
+	{% endembed %}
+{% endblock %}
