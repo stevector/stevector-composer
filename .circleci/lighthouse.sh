@@ -13,9 +13,7 @@ lighthouse --chrome-flags="--headless --disable-gpu" https://www.stevector.com/ 
 
 artifact_base_url="https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/artifacts/0$CIRCLE_ARTIFACTS"
 
-                   https://circleci.com/api/v1.1/project/github/stevector/stevector-composer/46/artifacts/0/tmp/lighthouse-report/www.stevector.com_2017-08-31_18-22-35.report.html
+ARTIFACT_URL="https://circleci.com/api/v1.1/project/github/stevector/stevector-composer/${CIRCLE_BUILD_NUM}/artifacts"
 
+comment="### Lighthouse report:"
 
-curl https://circleci.com/api/v1.1/project/:vcs-type/:username/:project/:build_num/artifacts$CIRCLE_TOKEN | grep -o 'https://[^"]*' > artifacts.txt
-
-https://46-102016661-gh.circle-artifacts.com/0/tmp/lighthouse-report/www.stevector.com_2017-08-31_18-22-35.report.html
