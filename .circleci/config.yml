@@ -152,11 +152,8 @@ jobs:
         steps:
             - checkout
             - run:
-                name: mkdir
-                command: mkdir /tmp/lighthouse-report
-            - run:
                 name: lighthouse
-                command: cd /tmp/lighthouse-report && lighthouse --chrome-flags="--headless --disable-gpu" https://www.stevector.com/ --save-artifacts    --save-assets
+                command: ./.circleci/lighthouse.sh
             - store_artifacts:
                 path: /tmp/lighthouse-report
 
