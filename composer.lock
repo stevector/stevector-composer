@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "17a00b8294cb4bb3c5623dabbdb6060f",
+    "content-hash": "acf676ed6686b1fa460f8bb60e3f3d63",
     "packages": [
         {
             "name": "composer/installers",
@@ -351,6 +351,69 @@
             "time": "2016-09-01T10:05:43+00:00"
         },
         {
+            "name": "wpackagist-plugin/debug-bar",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/debug-bar/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/debug-bar.zip?timestamp=1494849576",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/debug-bar/",
+            "time": "2017-05-15T12:59:36+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/debug-bar-timber",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/debug-bar-timber/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/debug-bar-timber.zip?timestamp=1471999092",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/debug-bar-timber/",
+            "time": "2016-08-24T01:38:12+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/dependency-minification",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/dependency-minification/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/dependency-minification.zip?timestamp=1424828806",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/dependency-minification/",
+            "time": "2015-02-25T01:46:46+00:00"
+        },
+        {
             "name": "wpackagist-plugin/pantheon-advanced-page-cache",
             "version": "0.1.5",
             "source": {
@@ -361,7 +424,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/pantheon-advanced-page-cache.0.1.5.zip",
-                "reference": null,
+                "reference": "tags/0.1.5",
                 "shasum": null
             },
             "require": {
@@ -369,6 +432,90 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/pantheon-advanced-page-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/redirection",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/redirection/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/redirection.zip?timestamp=1503739821",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/redirection/",
+            "time": "2017-08-26T10:30:21+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/timber",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/timber/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/timber.zip?timestamp=1239215776",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/timber/",
+            "time": "2009-04-08T19:36:16+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wp-cfm",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-cfm/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-cfm.zip?timestamp=1467943964",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-cfm/",
+            "time": "2016-07-08T03:12:44+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wp-github-sync",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-github-sync/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-github-sync.zip?timestamp=1499034061",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-github-sync/",
+            "time": "2017-07-02T23:21:01+00:00"
         },
         {
             "name": "wpackagist-plugin/wp-native-php-sessions",
@@ -381,7 +528,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wp-native-php-sessions.0.6.2.zip",
-                "reference": null,
+                "reference": "tags/0.6.2",
                 "shasum": null
             },
             "require": {
@@ -401,7 +548,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/theme/twentyseventeen.1.3.zip",
-                "reference": null,
+                "reference": "1.3",
                 "shasum": null
             },
             "require": {
@@ -4416,8 +4563,15 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "stability-flags": {
+        "wpackagist-plugin/debug-bar": 20,
+        "wpackagist-plugin/debug-bar-timber": 20,
+        "wpackagist-plugin/dependency-minification": 20,
+        "wpackagist-plugin/redirection": 20,
+        "wpackagist-plugin/timber": 20,
+        "wpackagist-plugin/wp-cfm": 20,
+        "wpackagist-plugin/wp-github-sync": 20,
         "roave/security-advisories": 20,
         "paulgibbs/behat-wordpress-extension": 20,
         "wp-coding-standards/wpcs": 20

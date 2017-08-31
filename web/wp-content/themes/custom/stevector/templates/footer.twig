@@ -1,0 +1,14 @@
+          <header>
+          <h2>
+          Recent Posts
+          </h2>
+          </header>
+
+          <ul id="recent-posts">
+            {% for post in posts %}
+              <li>
+                <span>{{ post.date | date('j F Y') }} - </span>
+                <a href="{{post.link}}">{{post.title}}</a>
+              </li>
+          	{% endfor %}
+          </ul>
