@@ -146,12 +146,14 @@ jobs:
 
 
     lighthouse:
-        <<: *defaults
+        docker:
+            - image: justinribeiro/lighthouse
+        working_directory: ~/example_wordpress_composer
         steps:
             - checkout
             - run:
-                name: echo
-                command: echo 'hi'
+                name: lighthouse
+                command: lighthouse https://www.stevector.com/
 
 workflows:
   version: 2
