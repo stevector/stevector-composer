@@ -21,7 +21,7 @@ echo 'export CIRCLE_ENV=ci-$CIRCLE_BUILD_NUM' >> $BASH_ENV
 echo ${CIRCLE_PULL_REQUEST}
 
 
-if [[ ${CIRCLE_BRANCH} != "master" && -z ${CIRCLE_PULL_REQUEST} ]]
+if [[ ${CIRCLE_BRANCH} != "master" && ! -z ${CIRCLE_PULL_REQUEST} ]]
 then
 echo 'pr exists'
 
