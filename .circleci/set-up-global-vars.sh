@@ -23,6 +23,8 @@ echo ${CIRCLE_PULL_REQUEST}
 
 if [[ ${CIRCLE_BRANCH} != "master" && -z ${CIRCLE_PULL_REQUEST} ]]
 then
+echo 'pr exists'
+
 	# Then use a pr- branch/multidev
 	PR_NUMBER=${CIRCLE_PULL_REQUEST##*/}
 	PR_BRANCH="pr-${PR_NUMBER}"
