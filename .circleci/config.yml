@@ -156,7 +156,7 @@ jobs:
                 command: mkdir /tmp/lighthouse-report
             - run:
                 name: lighthouse
-                command: cd /tmp/lighthouse-report && lighthouse --chrome-flags="--headless --disable-gpu" https://www.stevector.com/
+                command: cd /tmp/lighthouse-report && lighthouse --chrome-flags="--headless --disable-gpu" https://www.stevector.com/ --save-artifacts    --save-assets
             - store_artifacts:
                 path: /tmp/lighthouse-report
 
