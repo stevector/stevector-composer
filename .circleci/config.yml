@@ -168,7 +168,7 @@ workflows:
       # Install dev dependencies
       - build
       - build_and_deploy
-      - lighthouse
+      - lighthouse:
           requires:
             - build
             - build_and_deploy
