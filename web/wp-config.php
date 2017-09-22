@@ -201,7 +201,7 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
         /** Replace www.example.com with your registered domain name */
         // @todo update primary domain.
         // https://github.com/stevector/stevector-composer/issues/10
-        $primary_domain = 'www2.stevector.com';
+        $primary_domain = 'www.stevector.com';
     }
     else {
         // Redirect to HTTPS on every Pantheon environment.
