@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d9cdd9eb6602513cbaf10192bcbe6cd",
+    "content-hash": "2feb4ad6f4e9a0bdc697ac110ac8e920",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -884,6 +884,26 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/redirection/",
             "time": "2017-08-26T10:30:21+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/timber-library",
+            "version": "1.4.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/timber-library/",
+                "reference": "tags/1.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/timber-library.1.4.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/timber-library/"
         },
         {
             "name": "wpackagist-plugin/wp-cfm",
