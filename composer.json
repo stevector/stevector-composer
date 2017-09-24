@@ -25,7 +25,6 @@
         "pantheon-systems/wordpress-composer": "^4.8.1",
         "roots/wp-password-bcrypt": "^1.0.0",
         "rvtraveller/qs-composer-installer": "^1.1",
-        "timber/timber": "dev-master",
         "upstatement/timber-starter-theme": "dev-master",
         "vlucas/phpdotenv": "^2.4.0",
         "wpackagist-plugin/debug-bar": "dev-trunk",
