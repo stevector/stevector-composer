@@ -9,6 +9,12 @@
           "email": "jared@upstatement.com"
       }
   ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
   "extra": {
   	"installer-paths": {
       "../../plugins/{$name}/": [
@@ -18,12 +24,6 @@
   	}
 	},
   "require": {
-	  "wpackagist-plugin/timber-library": "0.21.*"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://wpackagist.org"
-    }
-  ]
+	  "wpackagist-plugin/timber-library": "0.22.*"
+  }
 }
