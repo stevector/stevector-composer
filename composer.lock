@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "31e2de214756b5e1a9ebc2ff115dd0e5",
+    "content-hash": "9e6fb039657c01f58d0ba51bc04d6936",
     "packages": [
         {
             "name": "composer/installers",
@@ -170,6 +170,95 @@
                 "wordpress"
             ],
             "time": "2015-06-11T15:15:30+00:00"
+        },
+        {
+            "name": "makotokw/wp-gfm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stevector/wp-gfm.git",
+                "reference": "bd60346e1395f248e7b9b534262374a89ce94eab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stevector/wp-gfm/zipball/bd60346e1395f248e7b9b534262374a89ce94eab",
+                "reference": "bd60346e1395f248e7b9b534262374a89ce94eab",
+                "shasum": ""
+            },
+            "require": {
+                "michelf/php-markdown": "1.7.*@dev",
+                "php": ">=5.3"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-0": {
+                    "Gfm\\Markdown\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Makoto Kawasaki",
+                    "email": "makoto.kw@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/stevector/wp-gfm/tree/master"
+            },
+            "time": "2017-09-24 15:23:32"
+        },
+        {
+            "name": "michelf/php-markdown",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-markdown.git",
+                "reference": "1f51cc520948f66cd2af8cbc45a5ee175e774220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/1f51cc520948f66cd2af8cbc45a5ee175e774220",
+                "reference": "1f51cc520948f66cd2af8cbc45a5ee175e774220",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-lib": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Michelf": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "https://daringfireball.net/"
+                }
+            ],
+            "description": "PHP Markdown",
+            "homepage": "https://michelf.ca/projects/php-markdown/",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2016-10-29T18:58:20+00:00"
         },
         {
             "name": "pantheon-systems/wordpress-composer",
@@ -4548,6 +4637,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "makotokw/wp-gfm": 20,
         "wpackagist-plugin/debug-bar": 20,
         "wpackagist-plugin/debug-bar-timber": 20,
         "wpackagist-plugin/dependency-minification": 20,
