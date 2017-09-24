@@ -32,6 +32,7 @@
         "wpackagist-plugin/dependency-minification": "dev-trunk",
         "wpackagist-plugin/pantheon-advanced-page-cache": "^0.1.4",
         "wpackagist-plugin/redirection": "dev-trunk",
+        "wpackagist-plugin/timber-library": "~1",
         "wpackagist-plugin/wp-cfm": "dev-trunk",
         "wpackagist-plugin/wp-github-sync": "dev-trunk",
         "wpackagist-plugin/wp-native-php-sessions": "^0.6.0",
