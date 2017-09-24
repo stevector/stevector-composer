@@ -23,7 +23,7 @@ Download from https://github.com/makotokw/wp-gfm/releases and upload to /path/to
 
 ## PHP-Markdown (Recommended)
 
-This conversion depends on [PHP Markdown Lib 1.6](http://michelf.ca/projects/php-markdown/).
+This conversion depends on [PHP Markdown Lib 1.7.0](http://michelf.ca/projects/php-markdown/).
 
 ### Usage
 
@@ -123,7 +123,7 @@ Use ``[gfm][/gfm]`` as shortcode on entry.
 
 ## Result
 
-![Result](https://dl.dropbox.com/u/8932138/screenshot/wp-gfm/wp-gfm_2013-04-08_2027.png)
+![Result](https://raw.githubusercontent.com/makotokw/wp-gfm/master/screenshot-1.png)
 
 
 ## Development
@@ -141,4 +141,4 @@ The MIT License
 
 The line below is used for the updater API, please leave it untouched unless bumping the version up :)
 
-~Current Version:0.8~
+~Current Version:0.9~

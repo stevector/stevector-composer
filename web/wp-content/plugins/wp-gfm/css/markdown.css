@@ -57,14 +57,25 @@
   width: auto;
 }
 
-.wp-gfm-ad {
+.wp-gfm-footer {
   margin: 5px 0;
-  font-size: 12px;
-  text-align: right;
   clear: both;
 }
+
+.wp-gfm-ad {
+  display: inline;
+  float: right;
+  font-size: 12px;
+  text-align: right;
+}
 .wp-gfm-ad .wp-gfm-powered-by {
-  color: #999;
+  color: #767676;
+}
+.wp-gfm-ad img {
+  margin: 0;
+}
+.wp-gfm-ad a {
+  font-weight: bold;
 }
 
 .markdown-file {
@@ -77,12 +88,12 @@
   padding: 20px;
 }
 .markdown-file .markdown-meta {
+  clear: both;
   display: block;
   padding: 9px 10px 10px;
   margin: 0;
   font-size: 14px;
   line-height: 17px;
   background-color: #f5f5f5;
-  border: 1px solid #d8d8d8;
-  border-bottom: 0;
+  border-top: 1px solid #dedede;
 }
