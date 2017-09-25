@@ -6,9 +6,11 @@ PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
 
 mkdir /tmp/lighthouse-report
 cd /tmp/lighthouse-report
-lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets
+lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --perf
 
 ARTIFACT_URL="https://circleci.com/api/v1.1/project/github/stevector/stevector-composer/${CIRCLE_BUILD_NUM}/artifacts"
+
+echo $ARTIFACT_URL
 
 #comment="### Lighthouse report: \n ${ARTIFACT_URL}"
 
