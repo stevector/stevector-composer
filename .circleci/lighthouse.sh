@@ -7,7 +7,7 @@ PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
 # Make artifacts directory
 CIRCLE_ARTIFACTS='artifacts'
 CIRCLE_ARTIFACTS_DIR='/tmp/artifacts'
-#mkdir -p $CIRCLE_ARTIFACTS_DIR
+mkdir -p $CIRCLE_ARTIFACTS_DIR
 
 
 # Stash Circle Artifacts URL
