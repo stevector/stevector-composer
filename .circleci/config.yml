@@ -160,6 +160,7 @@ jobs:
                 command: ./.circleci/lighthouse.sh
             - store_artifacts:
                 path: /tmp/lighthouse-report
+                destination: artifact-files
 
 workflows:
   version: 2
