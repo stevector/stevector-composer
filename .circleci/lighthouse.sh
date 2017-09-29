@@ -16,7 +16,7 @@ CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ART
 cd $CIRCLE_ARTIFACTS_DIR
 lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --perf
 
-HTML_REPORT=$(find ./backstop_data -type f -name "*.html" | head -n 1)
+HTML_REPORT=$(find . -type f -name "*.html" | head -n 1)
 
 
 $REPORT_URL=${CIRLCLE_ARTIFACTS_URL}/${HTML_REPORT}
