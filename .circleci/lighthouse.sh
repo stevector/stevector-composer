@@ -13,7 +13,7 @@ mkdir -p $CIRCLE_ARTIFACTS_DIR
 # Stash Circle Artifacts URL
 CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ARTIFACTS"
 
-cd CIRCLE_ARTIFACTS_DIR
+cd $CIRCLE_ARTIFACTS_DIR
 lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --perf
 
 ARTIFACT_URL="https://circleci.com/api/v1.1/project/github/stevector/stevector-composer/${CIRCLE_BUILD_NUM}/artifacts"
