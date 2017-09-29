@@ -1,7 +1,13 @@
 #!/bin/bash
 
 set -ex
+
+apt-get update;
+
 apt-get install -y curl
+
+
+
 PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
 
 # Make artifacts directory
