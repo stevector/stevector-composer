@@ -10,6 +10,9 @@ lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save
 
 ARTIFACT_URL="https://circleci.com/api/v1.1/project/github/stevector/stevector-composer/${CIRCLE_BUILD_NUM}/artifacts"
 
+
+echo $CIRCLE_ARTIFACTS
+
 echo $ARTIFACT_URL
 
 #comment="### Lighthouse report: \n ${ARTIFACT_URL}"
