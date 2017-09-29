@@ -19,7 +19,7 @@ lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save
 HTML_REPORT=$(find * -type f -name "*.html" | head -n 1)
 
 
-$REPORT_URL=${CIRLCLE_ARTIFACTS_URL}/${HTML_REPORT}
+REPORT_URL=${CIRLCLE_ARTIFACTS_URL}/${HTML_REPORT}
 
 
 echo $CIRCLE_ARTIFACTS
