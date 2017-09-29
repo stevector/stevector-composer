@@ -16,7 +16,10 @@ CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ART
 cd $CIRCLE_ARTIFACTS_DIR
 lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --perf
 
-ARTIFACT_URL="https://circleci.com/api/v1.1/project/github/stevector/stevector-composer/${CIRCLE_BUILD_NUM}/artifacts"
+HTML_REPORT=$(find ./backstop_data -type f -name "*.html" | head -n 1)
+
+
+$REPORT_URL=${CIRLCLE_ARTIFACTS_URL}/${HTML_REPORT}
 
 
 echo $CIRCLE_ARTIFACTS
@@ -25,6 +28,6 @@ echo $ARTIFACT_URL
 
 echo $CIRCLE_ARTIFACTS_URL
 
-#comment="### Lighthouse report: \n ${ARTIFACT_URL}"
+comment="### Lighthouse report: \n ${ARTIFACT_URL}"
 
-#curl -d '{ "body": "'"$comment"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
+curl -d '{ "body": "'"$comment"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
