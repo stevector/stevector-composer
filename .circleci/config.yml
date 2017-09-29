@@ -148,7 +148,7 @@ jobs:
 
     lighthouse:
         docker:
-            - image: justinribeiro/lighthouse
+            - image: kmturley/lighthouse-ci
         working_directory: ~/example_wordpress_composer
         steps:
             - checkout
@@ -168,7 +168,7 @@ workflows:
     jobs:
       # Install dev dependencies
       - build
-      - build_and_deploy
+      #- build_and_deploy
       - lighthouse
 #     - lighthouse:
 #          requires:
