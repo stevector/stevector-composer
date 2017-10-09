@@ -109,3 +109,6 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+# Local environment variables file
+/.env
