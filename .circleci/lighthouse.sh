@@ -14,24 +14,7 @@ CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ART
 
 cd $CIRCLE_ARTIFACTS_DIR
 lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --perf
-
 HTML_REPORT=$(find * -type f -name "*report.html" | head -n 1)
-
-
 REPORT_URL="${CIRCLE_ARTIFACTS_URL}/${HTML_REPORT}"
-
-
-echo $CIRCLE_ARTIFACTS
-
-
-echo $CIRCLE_ARTIFACTS_URL
-echo $HTML_REPORT
-
-
-echo "Report URL"
-
-echo $REPORT_URL
-
 COMMENT="### Lighthouse report: \n ${REPORT_URL}"
-
 curl -d '{ "body": "'"$COMMENT"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
