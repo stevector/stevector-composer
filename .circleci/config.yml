@@ -173,7 +173,7 @@ jobs:
                 name: dependencies
                 command: ./.circleci/set-up-global-vars.sh
             - run:
-                name: lighthouse
+                name: run-backstop
                 command: ./backstop/run-backstop.sh
             - store_artifacts:
                 path: /tmp/artifacts
