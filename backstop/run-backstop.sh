@@ -15,6 +15,8 @@ CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ART
 CWD=$(pwd)
 #sed -i -e "s/dev-${TERMINUS_SITE}/${TERMINUS_ENV}-${TERMINUS_SITE}/g" ${CWD}"/backstop/backstop.json"
 
+cat /home/chrome/example_wordpress_composer/backstop.json
+
 backstop reference
 VISUAL_REGRESSION_RESULTS=$(backstop test || echo 'true')
 
