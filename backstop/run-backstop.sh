@@ -26,9 +26,10 @@ DIFF_IMAGE=$(find * -type f -name "failed_diff*.png" | head -n 1)
 # Use a diff image if there is one. Otherwise just grab the first image.
 if [ -z "$DIFF_IMAGE" ]
 then
-  IMAGE_TO_LINK=$DIFF_IMAGE
+  IMAGE_TO_LINK=$(find * -type f -name "*.png" | head -n 1)
+
 else
-      IMAGE_TO_LINK=$(find * -type f -name "*.png" | head -n 1)
+  IMAGE_TO_LINK=$DIFF_IMAGE
 fi
 
 
