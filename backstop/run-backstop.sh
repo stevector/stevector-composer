@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -x
 
 # Make artifacts directory
 CIRCLE_ARTIFACTS='artifacts'
