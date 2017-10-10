@@ -166,7 +166,7 @@ jobs:
     backstop:
         docker:
             - image: quay.io/stevector/pantheon-ci-testing:master
-        working_directory: ~/example_wordpress_composer
+        working_directory: ~/example_wordpress_composer/backstop
         steps:
             - checkout
             - run:
@@ -174,7 +174,7 @@ jobs:
                 command: ./.circleci/set-up-global-vars.sh
             - run:
                 name: run-backstop
-                command: ./backstop/run-backstop.sh
+                command: ./run-backstop.sh
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
