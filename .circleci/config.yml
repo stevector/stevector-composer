@@ -145,14 +145,36 @@ jobs:
                 name: run Behat tests
                 command: ./.circleci/behat-test.sh
 
+
+    lighthouse:
+        docker:
+            - image: quay.io/stevector/pantheon-ci-testing:master
+        working_directory: ~/example_wordpress_composer
+        steps:
+            - checkout
+            - run:
+                name: dependencies
+                command: ./.circleci/set-up-global-vars.sh
+            - run:
+                name: lighthouse
+                command: ./.circleci/lighthouse.sh
+            - store_artifacts:
+                path: /tmp/artifacts
+                destination: artifacts
+
 workflows:
   version: 2
   build_and_test:
     jobs:
       # Install dev dependencies
       - build
-      # Build and deploy
-      - build_and_deploy
+      #- build_and_deploy
+      - lighthouse
+#     - lighthouse:
+#          requires:
+#            - build
+#            - build_and_deploy
+            # Run Behat tests after deploy so they can be done on Pantheon
       # Code sniff and unit text first
 
      # todo, bring back this job https://github.com/stevector/stevector-composer/issues/2
