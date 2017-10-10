@@ -21,8 +21,18 @@ VISUAL_REGRESSION_RESULTS=$(backstop test || echo 'true')
 rsync -rlvz backstop_data $CIRCLE_ARTIFACTS_DIR
 
 cd $CIRCLE_ARTIFACTS_DIR
-diff_image=$(find * | grep png | grep diff | head -n 1)
-diff_image_url=${CIRCLE_ARTIFACTS_URL}/$diff_image
+DIFF_IMAGE=$(find * -type f -name "failed_diff*.png" | head -n 1)
+
+# Use a diff image if there is one. Otherwise just grab the first image.
+if [ -z "$DIFF_IMAGE" ]
+then
+  IMAGE_TO_LINK=$DIFF_IMAGE
+else
+      IMAGE_TO_LINK=$(find * -type f -name "*.png" | head -n 1)
+fi
+
+
+diff_image_url=${CIRCLE_ARTIFACTS_URL}/${IMAGE_TO_LINK}
 report_url=${CIRCLE_ARTIFACTS_URL}/backstop_data/html_report/index.html
 report_link="[![Visual report]($diff_image_url)]($report_url)"
 comment="### Visual regression report:"
