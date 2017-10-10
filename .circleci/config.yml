@@ -148,7 +148,7 @@ jobs:
 
     lighthouse:
         docker:
-            - image: kmturley/lighthouse-ci
+            - image: quay.io/stevector/pantheon-ci-testing:master
         working_directory: ~/example_wordpress_composer
         steps:
             - checkout
