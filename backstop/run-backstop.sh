@@ -11,7 +11,7 @@ CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ART
 
 
 # Update the URLs in the backstop file to use the new multidev
-sed -i -e "s/dev-${TERMINUS_SITE}/${TERMINUS_ENV}-${TERMINUS_SITE}/g" ~/$CIRCLE_PROJECT_REPONAME/backstop/backstop.json
+sed -i -e "s/dev-${TERMINUS_SITE}/${TERMINUS_ENV}-${TERMINUS_SITE}/g" ${BASH_SOURCE[0]}"/backstop/backstop.json"
 
 backstop reference
 VISUAL_REGRESSION_RESULTS=$(backstop test || echo 'true')
