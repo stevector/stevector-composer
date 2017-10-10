@@ -12,9 +12,10 @@ mkdir -p $CIRCLE_ARTIFACTS_DIR
 CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ARTIFACTS"
 
 LIGHTHOUSE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $CIRCLE_ARTIFACTS_DIR
+
 lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --config-path=${LIGHTHOUSE_DIR}/no_pwa.js
 
-cd $CIRCLE_ARTIFACTS_DIR
 HTML_REPORT=$(find * -type f -name "*report.html" | head -n 1)
 REPORT_URL="${CIRCLE_ARTIFACTS_URL}/${HTML_REPORT}"
 COMMENT="### Lighthouse report: \n ${REPORT_URL}"
