@@ -17,6 +17,11 @@ CWD=$(pwd)
 
 cat /home/chrome/example_wordpress_composer/backstop.json
 
+pwd
+
+
+ls -al
+
 backstop reference
 VISUAL_REGRESSION_RESULTS=$(backstop test || echo 'true')
 
