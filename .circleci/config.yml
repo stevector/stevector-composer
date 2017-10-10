@@ -163,6 +163,24 @@ jobs:
                 destination: artifacts
 
 
+    backstop:
+        docker:
+            - image: quay.io/stevector/pantheon-ci-testing:master
+        working_directory: ~/example_wordpress_composer
+        steps:
+            - checkout
+            - run:
+                name: dependencies
+                command: ./.circleci/set-up-global-vars.sh
+            - run:
+                name: lighthouse
+                command: ./backstop/run-backstop.sh
+            - store_artifacts:
+                path: /tmp/artifacts
+                destination: artifacts
+
+
+
 
 
 workflows:
@@ -172,6 +190,11 @@ workflows:
       # Install dev dependencies
       - build
       - build_and_deploy
+      - backstop:
+          requires:
+            - build
+            - build_and_deploy
+
       - lighthouse:
           requires:
             - build
