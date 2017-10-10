@@ -2,19 +2,12 @@
 
 set -e
 
-apt-get update
-
-apt-get install curl -y
-
-
-
 PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
 
 # Make artifacts directory
 CIRCLE_ARTIFACTS='artifacts'
 CIRCLE_ARTIFACTS_DIR='/tmp/artifacts'
 mkdir -p $CIRCLE_ARTIFACTS_DIR
-
 
 # Stash Circle Artifacts URL
 CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ARTIFACTS"
