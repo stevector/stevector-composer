@@ -190,14 +190,14 @@ workflows:
       # Install dev dependencies
       - build
      - build_and_deploy
-      - backstop:
-          requires:
-            - build
-            - build_and_deploy
-      - lighthouse:
-          requires:
-            - build
-            - build_and_deploy
+     - backstop:
+       requires:
+         - build
+         - build_and_deploy
+     - lighthouse:
+       requires:
+         - build
+         - build_and_deploy
             # Run Behat tests after deploy so they can be done on Pantheon
       # Code sniff and unit text first
 
