@@ -157,7 +157,7 @@ jobs:
                 command: ./.circleci/set-up-global-vars.sh
             - run:
                 name: lighthouse
-                command: ./.circleci/lighthouse.sh
+                command: ./.circleci/lighthouse/lighthouse.sh
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
