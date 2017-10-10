@@ -23,12 +23,15 @@ REPORT_URL=${CIRLCLE_ARTIFACTS_URL}/${HTML_REPORT}
 
 echo $CIRCLE_ARTIFACTS
 
-echo $ARTIFACT_URL
 
 echo $CIRCLE_ARTIFACTS_URL
 echo $HTML_REPORT
 
 
-COMMENT="### Lighthouse report: \n ${ARTIFACT_URL}"
+echo "Report URL"
+
+echo $REPORT_URL
+
+COMMENT="### Lighthouse report: \n ${REPORT_URL}"
 
 curl -d '{ "body": "'"$COMMENT"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
