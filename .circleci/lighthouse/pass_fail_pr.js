@@ -19,11 +19,6 @@ const LighthouseCI = require('./node_modules/lighthouse-ci/frontend/lighthouse-c
 const ResultPath = process.argv.slice(2);
 const lhResults = require('./' + process.argv.slice(2));
 
-const GITHUB_PENDING_STATUS = {
-    state: 'pending',
-    description: 'Auditing PR changes...'
-};
-
 const CI = new LighthouseCI(process.env.OAUTH_TOKEN);
 
 const prInfo = {

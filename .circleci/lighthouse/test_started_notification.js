@@ -16,8 +16,6 @@
 'use strict';
 
 const LighthouseCI = require('./node_modules/lighthouse-ci/frontend/lighthouse-ci.js');
-const ResultPath = process.argv.slice(2);
-const lhResults = require('./' + process.argv.slice(2));
 
 const GITHUB_PENDING_STATUS = {
     state: 'pending',
@@ -34,12 +32,9 @@ const prInfo = {
     minPassScore: '90'
 };
 
-
 try {
     const status = Object.assign({}, prInfo, GITHUB_PENDING_STATUS);
     CI.updateGithubStatus(status);
-    //CI.postLighthouseComment(prInfo, lhResults);
-    //CI.assignPassFailToPR(lhResults, prInfo, prInfo);
 } catch (err) {
     CI.handleError(err, prInfo);
 }
