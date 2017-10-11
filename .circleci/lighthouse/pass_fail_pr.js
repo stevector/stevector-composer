@@ -22,13 +22,12 @@ const lhResults = require('./' + process.argv.slice(2));
 const CI = new LighthouseCI(process.env.OAUTH_TOKEN);
 
 const prInfo = {
-    repo: 'stevector-composer',
-    owner: 'stevector',
-    number: '21',
-    sha: '7d7cb4aa3e08fa6c483ca46bf3afac16a51d4787',
+    repo: process.env.CIRCLE_PROJECT_REPONAME,
+    owner: process.env.CIRCLE_PROJECT_USERNAME,
+    number: process.env.PR_NUMBER,
+    sha: process.env.CIRCLE_SHA1,
     minPassScore: '90'
 };
-
 
 try {
     CI.postLighthouseComment(prInfo, lhResults);
