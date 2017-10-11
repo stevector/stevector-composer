@@ -2,7 +2,9 @@
 
 set -e
 
-node test_started_notification.js
+LIGHTHOUSE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+node ${LIGHTHOUSE_DIR}/test_started_notification.js
 
 
 PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
@@ -14,13 +16,13 @@ mkdir -p $CIRCLE_ARTIFACTS_DIR
 # Stash Circle Artifacts URL
 CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ARTIFACTS"
 
-LIGHTHOUSE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 cd $CIRCLE_ARTIFACTS_DIR
 
 lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --config-path=${LIGHTHOUSE_DIR}/no_pwa.js --output=json --output=html
 
 JSON_REPORT=$(find * -type f -name "*report.json" | head -n 1)
-node pass_fail_pr.js $JSON_REPORT
+node ${LIGHTHOUSE_DIR}/pass_fail_pr.js $JSON_REPORT
 
 
 HTML_REPORT=$(find * -type f -name "*report.html" | head -n 1)
