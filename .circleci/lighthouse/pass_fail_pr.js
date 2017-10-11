@@ -17,7 +17,7 @@
 
 const LighthouseCI = require('./node_modules/lighthouse-ci/frontend/lighthouse-ci.js');
 const ResultPath = process.argv.slice(2);
-const lhResults = require('./' + process.argv.slice(2));
+const lhResults = require('.' + process.argv.slice(2));
 
 const CI = new LighthouseCI(process.env.GITHUB_TOKEN);
 
