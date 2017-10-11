@@ -41,6 +41,6 @@ fi
 
 
 
-echo 'export PR_NUMBER=${PR_NUMBER}' >> $BASH_ENV
+echo 'export PR_NUMBER=${CIRCLE_PULL_REQUEST##*/}' >> $BASH_ENV
 echo 'export TERMINUS_ENV=${TERMINUS_ENV:-$DEFAULT_ENV}' >> $BASH_ENV
 source $BASH_ENV
