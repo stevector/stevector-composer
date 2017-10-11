@@ -155,6 +155,11 @@ jobs:
             - run:
                 name: dependencies
                 command: ./.circleci/set-up-global-vars.sh
+
+            - run:
+                name: yarn install
+                command: cd .circleci/lighthouse && yarn install
+
             - run:
                 name: lighthouse
                 command: ./.circleci/lighthouse/lighthouse.sh
