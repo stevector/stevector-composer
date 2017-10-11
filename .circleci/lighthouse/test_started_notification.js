@@ -22,7 +22,7 @@ const GITHUB_PENDING_STATUS = {
     description: 'Auditing PR changes...'
 };
 
-const CI = new LighthouseCI(process.env.OAUTH_TOKEN);
+const CI = new LighthouseCI(process.env.GITHUB_TOKEN);
 
 const prInfo = {
     repo: process.env.CIRCLE_PROJECT_REPONAME,

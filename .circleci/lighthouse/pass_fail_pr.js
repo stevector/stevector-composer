@@ -19,7 +19,7 @@ const LighthouseCI = require('./node_modules/lighthouse-ci/frontend/lighthouse-c
 const ResultPath = process.argv.slice(2);
 const lhResults = require('./' + process.argv.slice(2));
 
-const CI = new LighthouseCI(process.env.OAUTH_TOKEN);
+const CI = new LighthouseCI(process.env.GITHUB_TOKEN);
 
 const prInfo = {
     repo: process.env.CIRCLE_PROJECT_REPONAME,
