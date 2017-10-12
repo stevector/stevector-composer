@@ -27,7 +27,7 @@ JSON_REPORT=$(find * -type f -name "*report.json" | head -n 1)
 
 
 
-node ${LIGHTHOUSE_DIR}/pass_fail_pr.js $CIRCLE_ARTIFACTS_DIR/$JSON_REPORT
+node ${LIGHTHOUSE_DIR}/node_modules/lighthouse-ci/frontend/pass_fail_pr.js $CIRCLE_ARTIFACTS_DIR/$JSON_REPORT
 
 
 HTML_REPORT=$(find * -type f -name "*report.html" | head -n 1)
