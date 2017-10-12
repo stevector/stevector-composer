@@ -59,7 +59,7 @@ is-stream@^1.0.1:
 
 "lighthouse-ci@https://github.com/stevector/lighthouse-ci":
   version "0.0.2"
-  resolved "https://github.com/stevector/lighthouse-ci#3e46579163dcc4f5f49d242db679fe60b1bd0e8c"
+  resolved "https://github.com/stevector/lighthouse-ci#e097f584b079fafb22d8be2f4e883f8068a60e33"
   dependencies:
     minimist "^1.2.0"
     node-fetch "^1.7.3"
