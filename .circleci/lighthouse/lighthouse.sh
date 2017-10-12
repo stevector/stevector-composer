@@ -29,7 +29,7 @@ HTML_REPORT=$(find * -type f -name "*report.html" | head -n 1)
 REPORT_URL="${CIRCLE_ARTIFACTS_URL}/${HTML_REPORT}"
 COMMENT="### Lighthouse report: \n ${REPORT_URL}"
 
-
+sleep 60
 
 {
 curl -d '{ "body": "'"$COMMENT"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
