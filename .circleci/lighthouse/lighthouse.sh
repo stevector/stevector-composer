@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 LIGHTHOUSE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -28,4 +28,11 @@ node ${LIGHTHOUSE_DIR}/pass_fail_pr.js $CIRCLE_ARTIFACTS_DIR/$JSON_REPORT
 HTML_REPORT=$(find * -type f -name "*report.html" | head -n 1)
 REPORT_URL="${CIRCLE_ARTIFACTS_URL}/${HTML_REPORT}"
 COMMENT="### Lighthouse report: \n ${REPORT_URL}"
+
+
+
+{
 curl -d '{ "body": "'"$COMMENT"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
+} &> /dev/null
+
+
