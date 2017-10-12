@@ -57,9 +57,9 @@ is-stream@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
 
-"lighthouse-ci@https://github.com/ebidel/lighthouse-ci":
+"lighthouse-ci@https://github.com/stevector/lighthouse-ci":
   version "0.0.2"
-  resolved "https://github.com/ebidel/lighthouse-ci#d68219694ed92c86e8b08cf22e52b8e946ff88a9"
+  resolved "https://github.com/stevector/lighthouse-ci#025a8af04a2824d84637f214329a63ad9cf6a6b5"
   dependencies:
     minimist "^1.2.0"
     node-fetch "^1.7.3"

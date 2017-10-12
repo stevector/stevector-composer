@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "github": "^11.0.0",
-    "lighthouse-ci": "https://github.com/ebidel/lighthouse-ci",
+    "lighthouse-ci": "https://github.com/stevector/lighthouse-ci",
     "node-fetch": "^1.7.3"
   }
 }

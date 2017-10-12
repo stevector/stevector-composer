@@ -4,7 +4,7 @@ set -e
 
 LIGHTHOUSE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-node ${LIGHTHOUSE_DIR}/test_started_notification.js
+node ${LIGHTHOUSE_DIR}/node_modules/lighthouse-ci/frontend/test_started_notification.js
 
 
 PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
