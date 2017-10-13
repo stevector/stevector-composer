@@ -40,7 +40,14 @@ else
 fi
 
 
+# Make artifacts directory
+CIRCLE_ARTIFACTS_DIR='/tmp/artifacts'
+mkdir -p $CIRCLE_ARTIFACTS_DIR
 
+echo 'export PANTHEON_DEV_SITE_URL=https://dev-${TERMINUS_SITE}.pantheonsite.io' >> $BASH_ENV
+echo 'export PANTHEON_SITE_URL=https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io' >> $BASH_ENV
+echo 'CIRCLE_ARTIFACTS_DIR="/tmp/artifacts"' >> $BASH_ENV
+echo 'export CIRCLE_ARTIFACTS_URL=${CIRCLE_BUILD_URL}/artifacts/$CIRCLE_NODE_INDEX/artifacts' >> $BASH_ENV
 echo 'export PR_NUMBER=${CIRCLE_PULL_REQUEST##*/}' >> $BASH_ENV
 echo 'export TERMINUS_ENV=${TERMINUS_ENV:-$DEFAULT_ENV}' >> $BASH_ENV
 source $BASH_ENV
