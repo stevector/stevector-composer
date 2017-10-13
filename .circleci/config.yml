@@ -155,9 +155,14 @@ jobs:
             - run:
                 name: dependencies
                 command: ./.circleci/set-up-global-vars.sh
+
+            - run:
+                name: yarn install
+                command: cd .circleci/lighthouse && yarn install
+
             - run:
                 name: lighthouse
-                command: ./.circleci/lighthouse.sh
+                command: ./.circleci/lighthouse/lighthouse.sh
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
@@ -189,15 +194,16 @@ workflows:
     jobs:
       # Install dev dependencies
       - build
-      - build_and_deploy
-      - backstop:
-          requires:
-            - build
-            - build_and_deploy
-      - lighthouse:
-          requires:
-            - build
-            - build_and_deploy
+      - lighthouse
+#      - build_and_deploy
+#      - backstop:
+#          requires:
+#            - build
+#            - build_and_deploy
+#      - lighthouse:
+#          requires:
+#            - build
+#            - build_and_deploy
             # Run Behat tests after deploy so they can be done on Pantheon
       # Code sniff and unit text first
 
