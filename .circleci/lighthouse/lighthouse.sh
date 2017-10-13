@@ -14,10 +14,8 @@ REPORT_URL="${CIRCLE_ARTIFACTS_URL}/${HTML_REPORT}"
 COMMENT="### Lighthouse report: \n ${REPORT_URL}"
 
 
-
 JSON_REPORT=$(find * -type f -name "*report.json" | head -n 1)
-node ${LIGHTHOUSE_SCRIPTS_DIR}/pass_fail_pr.js $CIRCLE_ARTIFACTS_DIR/$JSON_REPORT
-
+node ${LIGHTHOUSE_SCRIPTS_DIR}/pass_fail_pr.js --resultspath=$CIRCLE_ARTIFACTS_DIR/$JSON_REPORT  --reporturl=$REPORT_URL
 
 {
 curl -d '{ "body": "'"$COMMENT"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
