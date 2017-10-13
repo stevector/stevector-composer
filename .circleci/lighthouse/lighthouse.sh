@@ -16,7 +16,7 @@ COMMENT="### Lighthouse report: \n ${REPORT_URL}"
 
 
 JSON_REPORT=$(find * -type f -name "*report.json" | head -n 1)
-node ${LIGHTHOUSE_SCRIPTS_DIR}/pass_fail_pr.js $CIRCLE_ARTIFACTS_DIR/$JSON_REPORT REPORT_URL
+node ${LIGHTHOUSE_SCRIPTS_DIR}/pass_fail_pr.js $CIRCLE_ARTIFACTS_DIR/$JSON_REPORT $REPORT_URL
 
 
 {
