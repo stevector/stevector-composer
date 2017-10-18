@@ -39,7 +39,6 @@ else
 	fi
 fi
 
-
 # Make artifacts directory
 CIRCLE_ARTIFACTS_DIR='/tmp/artifacts'
 mkdir -p $CIRCLE_ARTIFACTS_DIR
