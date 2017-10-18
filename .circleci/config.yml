@@ -159,18 +159,13 @@ jobs:
             - run:
                 name: install lighthouse-ci
                 command: |
-                  cd .circleci/lighthouse
+                  cd .circleci
                   git clone https://github.com/stevector/lighthouse-ci
                   cd lighthouse-ci
                   yarn install
-
-                  composer install
-                  drush help
-
-
             - run:
                 name: lighthouse
-                command: ./.circleci/lighthouse/lighthouse.sh
+                command: ./.circleci/lighthouse-ci/frontend/lighthouse.sh
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
