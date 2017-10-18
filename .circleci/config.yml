@@ -161,7 +161,7 @@ jobs:
                 command: |
                   cd .circleci
                   git clone https://github.com/stevector/lighthouse-ci
-                  cd lighthouse-ci
+                  cd lighthouse-ci/frontend
                   yarn install
             - run:
                 name: lighthouse
