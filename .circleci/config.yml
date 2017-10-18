@@ -157,8 +157,16 @@ jobs:
                 command: ./.circleci/set-up-global-vars.sh
 
             - run:
-                name: yarn install
-                command: cd .circleci/lighthouse && yarn install
+                name: install lighthouse-ci
+                command: |
+                  cd .circleci/lighthouse
+                  git clone https://github.com/stevector/lighthouse-ci
+                  cd lighthouse-ci
+                  yarn install
+
+                  composer install
+                  drush help
+
 
             - run:
                 name: lighthouse
