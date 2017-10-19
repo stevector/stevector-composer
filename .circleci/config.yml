@@ -145,7 +145,10 @@ jobs:
                 name: run Behat tests
                 command: ./.circleci/behat-test.sh
 
-
+    # This job puts a fair bit of complexity in this yml config rather than hiding it
+    # In scripts called from the job. That decision is made so that in training sessions
+    # done by Pantheon, this job is usable with only with copying/pasting changes to this
+    # config.yml file.
     lighthouse:
         docker:
             - image: quay.io/stevector/pantheon-ci-testing:master
@@ -154,10 +157,29 @@ jobs:
             - checkout
             - run:
                 name: dependencies
+                # todo, get this file into something upstream.
                 command: ./.circleci/set-up-global-vars.sh
+
+            - run:
+                name: install lighthouse-ci
+                command: |
+                  cd .circleci
+                  git clone https://github.com/stevector/lighthouse-ci
+                  cd lighthouse-ci/frontend
+                  yarn install
+                  cp no_pwa.js /tmp/artifacts/
             - run:
                 name: lighthouse
-                command: ./.circleci/lighthouse.sh
+                command: |
+                  cd /tmp/artifacts
+                  echo $PANTHEON_SITE_URL
+                  echo $TERMINUS_ENV
+                  lighthouse --chrome-flags="--headless --disable-gpu" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
+            - run:
+                name: report results
+                command: |
+                  cd .circleci/lighthouse-ci/frontend
+                  node pass_fail_pr.js --resultspath=$(find /tmp/artifacts/ -type f -name "*report.json" | head -n 1) --reporturl=${CIRCLE_ARTIFACTS_URL}/$(find /tmp/artifacts/ -type f -name "*report.html"  -exec basename {} \;  | head -n 1)
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
