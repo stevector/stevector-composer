@@ -173,6 +173,7 @@ jobs:
                 name: lighthouse
                 command: |
                   cd /tmp/artifacts
+                  echo $PANTHEON_SITE_URL
                   lighthouse --chrome-flags="--headless --disable-gpu" $PANTHEON_SITE_URL --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
             - run:
                 name: report results
