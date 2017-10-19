@@ -163,9 +163,18 @@ jobs:
                   git clone https://github.com/stevector/lighthouse-ci
                   cd lighthouse-ci/frontend
                   yarn install
+                  cp no_pwa.js /tmp/artifacts/
+                  pwd
             - run:
                 name: lighthouse
-                command: ./.circleci/lighthouse-ci/frontend/lighthouse.sh
+                command: |
+                  cd /tmp/artifacts
+                  lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
+            - run:
+                name: report results
+                command: |
+                  cd .circleci/lighthouse-ci/frontend
+                  node pass_fail_pr.js --resultspath=/tmp/artifacts/$(find * -type f -name "*report.json" | head -n 1) --reporturl=${CIRCLE_ARTIFACTS_URL}/$(find * -type f -name "*report.html" | head -n 1)
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
