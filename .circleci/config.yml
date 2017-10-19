@@ -145,7 +145,10 @@ jobs:
                 name: run Behat tests
                 command: ./.circleci/behat-test.sh
 
-
+    # This job puts a fair bit of complexity in this yml config rather than hiding it
+    # In scripts called from the job. That decision is made so that in training sessions
+    # done by Pantheon, this job is usable with only with copying/pasting changes to this
+    # config.yml file.
     lighthouse:
         docker:
             - image: quay.io/stevector/pantheon-ci-testing:master
@@ -154,6 +157,7 @@ jobs:
             - checkout
             - run:
                 name: dependencies
+                # todo, get this file into something upstream.
                 command: ./.circleci/set-up-global-vars.sh
 
             - run:
@@ -169,7 +173,7 @@ jobs:
                 name: lighthouse
                 command: |
                   cd /tmp/artifacts
-                  lighthouse --chrome-flags="--headless --disable-gpu" ${PANTHEON_SITE_URL} --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
+                  lighthouse --chrome-flags="--headless --disable-gpu" $PANTHEON_SITE_URL --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
             - run:
                 name: report results
                 command: |
@@ -206,15 +210,16 @@ workflows:
     jobs:
       # Install dev dependencies
       - build
-      - build_and_deploy
-      - backstop:
-          requires:
-            - build
-            - build_and_deploy
-      - lighthouse:
-          requires:
-            - build
-            - build_and_deploy
+      - lighthouse
+#      - build_and_deploy
+#      - backstop:
+#          requires:
+#            - build
+#            - build_and_deploy
+#      - lighthouse:
+#          requires:
+#            - build
+#            - build_and_deploy
             # Run Behat tests after deploy so they can be done on Pantheon
       # Code sniff and unit text first
 
