@@ -157,8 +157,9 @@ jobs:
             - checkout
             - run:
                 name: dependencies
-                # todo, get this file into something upstream.
-                command: ./.circleci/set-up-global-vars.sh
+                # Set TERMINUS_ENV and related environment variables.
+                # https://github.com/stevector/docker-build-tools-ci/blob/master/dockerfiles/pantheon-ci-testing/scripts/set-up-global-vars.sh
+                command: /build-tools-ci/scripts/set-up-global-vars.sh
 
             - run:
                 name: install lighthouse-ci
@@ -172,8 +173,6 @@ jobs:
                 name: lighthouse
                 command: |
                   cd /tmp/artifacts
-                  echo $PANTHEON_SITE_URL
-                  echo $TERMINUS_ENV
                   lighthouse --chrome-flags="--headless --disable-gpu" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
             - run:
                 name: report results
@@ -193,7 +192,9 @@ jobs:
             - checkout
             - run:
                 name: dependencies
-                command: ./.circleci/set-up-global-vars.sh
+                # Set TERMINUS_ENV and related environment variables.
+                # https://github.com/stevector/docker-build-tools-ci/blob/master/dockerfiles/pantheon-ci-testing/scripts/set-up-global-vars.sh
+                command: /build-tools-ci/scripts/set-up-global-vars.sh
             - run:
                 name: run-backstop
                 command: cd backstop && ./run-backstop.sh
