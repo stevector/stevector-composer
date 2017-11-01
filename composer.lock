@@ -283,7 +283,7 @@
                 "MIT"
             ],
             "description": "Push commits made via the Pantheon dashboard back to original GitHub repository.",
-            "time": "2017-07-22 19:59:43"
+            "time": "2017-07-22T19:59:43+00:00"
         },
         {
             "name": "pantheon-systems/wordpress-composer",
@@ -291,12 +291,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/wordpress-composer.git",
-                "reference": "5f0725b3cdbeeb53fa49e1afcfc8237cbfba3355"
+                "reference": "3c90fee285e7d9a9c9034be24d65445bef84c191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/5f0725b3cdbeeb53fa49e1afcfc8237cbfba3355",
-                "reference": "5f0725b3cdbeeb53fa49e1afcfc8237cbfba3355",
+                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/3c90fee285e7d9a9c9034be24d65445bef84c191",
+                "reference": "3c90fee285e7d9a9c9034be24d65445bef84c191",
                 "shasum": ""
             },
             "require": {
@@ -314,10 +314,10 @@
             ],
             "description": "WordPress for Pantheon with a composer.json file.",
             "support": {
-                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/4.8.2",
+                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/4.8.3",
                 "issues": "https://github.com/pantheon-systems/wordpress-composer/issues"
             },
-            "time": "2017-09-19T23:18:39+00:00"
+            "time": "2017-10-31T18:09:38+00:00"
         },
         {
             "name": "roots/wp-password-bcrypt",
@@ -420,12 +420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/starter-theme.git",
-                "reference": "317f6c649b8aae07bb6651aec8a45e912d797d0b"
+                "reference": "c7e064d09aba3ff2ce27ce76682399bf58e3535f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/starter-theme/zipball/317f6c649b8aae07bb6651aec8a45e912d797d0b",
-                "reference": "317f6c649b8aae07bb6651aec8a45e912d797d0b",
+                "url": "https://api.github.com/repos/timber/starter-theme/zipball/c7e064d09aba3ff2ce27ce76682399bf58e3535f",
+                "reference": "c7e064d09aba3ff2ce27ce76682399bf58e3535f",
                 "shasum": ""
             },
             "require": {
@@ -448,20 +448,20 @@
                 }
             ],
             "description": "Starter theme to build a Timber theme",
-            "time": "2017-08-17T22:23:22+00:00"
+            "time": "2017-10-06T02:20:11+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "dev-master",
+            "version": "2.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "3dd3d8f90e6604e75cca48ec32b033b50b05135b"
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/3dd3d8f90e6604e75cca48ec32b033b50b05135b",
-                "reference": "3dd3d8f90e6604e75cca48ec32b033b50b05135b",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
+                "reference": "3cc116adbe4b11be5ec557bf1d24dc5e3a21d18c",
                 "shasum": ""
             },
             "require": {
@@ -498,7 +498,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2017-08-08T20:02:34+00:00"
+            "time": "2016-09-01T10:05:43+00:00"
         },
         {
             "name": "wpackagist-plugin/debug-bar",
@@ -852,7 +852,7 @@
                 "extension",
                 "twig"
             ],
-            "time": "2017-01-10T22:04:15+00:00"
+            "time": "2017-01-10 22:04:15"
         },
         {
             "name": "behat/behat",
@@ -1594,19 +1594,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "09e549f5534380c68761260a71f847644d8f65aa"
+                "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/09e549f5534380c68761260a71f847644d8f65aa",
-                "reference": "09e549f5534380c68761260a71f847644d8f65aa",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/e9cdab6ff93ff789b5b599326c727f51d10893a6",
+                "reference": "e9cdab6ff93ff789b5b599326c727f51d10893a6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0"
+                "phpunit/phpunit": "^4.8.36"
             },
             "type": "library",
             "extra": {
@@ -1637,7 +1637,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2017-05-20T23:14:18+00:00"
+            "time": "2017-10-06T12:25:00+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1645,12 +1645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "811b676fbab9c99e359885032e5ebc70e442f5b8"
+                "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/811b676fbab9c99e359885032e5ebc70e442f5b8",
-                "reference": "811b676fbab9c99e359885032e5ebc70e442f5b8",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/d2537c86fa8b004c29e9b9f5e10028f0a29df101",
+                "reference": "d2537c86fa8b004c29e9b9f5e10028f0a29df101",
                 "shasum": ""
             },
             "require": {
@@ -1702,7 +1702,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-07-17T09:11:21+00:00"
+            "time": "2017-10-07T03:19:56+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -1761,12 +1761,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/instaclick/php-webdriver.git",
-                "reference": "6fa959452e774dcaed543faad3a9d1a37d803327"
+                "reference": "85e7467eda74adb2c41d11cf6377d9d1e8977bff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/6fa959452e774dcaed543faad3a9d1a37d803327",
-                "reference": "6fa959452e774dcaed543faad3a9d1a37d803327",
+                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/85e7467eda74adb2c41d11cf6377d9d1e8977bff",
+                "reference": "85e7467eda74adb2c41d11cf6377d9d1e8977bff",
                 "shasum": ""
             },
             "require": {
@@ -1812,7 +1812,7 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2017-06-30T04:02:48+00:00"
+            "time": "2017-10-05T16:36:54+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -2472,16 +2472,16 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "dev-master",
+            "version": "1.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5"
+                "reference": "63304292f3cf89b2382b90dd7a2abf9e0ba232f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
-                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/63304292f3cf89b2382b90dd7a2abf9e0ba232f9",
+                "reference": "63304292f3cf89b2382b90dd7a2abf9e0ba232f9",
                 "shasum": ""
             },
             "require": {
@@ -2515,7 +2515,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03T07:40:28+00:00"
+            "time": "2017-10-30T04:21:02+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -2658,16 +2658,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "dev-master",
+            "version": "6.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "09c88073720c6046525a4274ebf4b8a725ca48ae"
+                "reference": "13b752f7226c0b1dacaa4cb88bb7e25ef987f9e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/09c88073720c6046525a4274ebf4b8a725ca48ae",
-                "reference": "09c88073720c6046525a4274ebf4b8a725ca48ae",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/13b752f7226c0b1dacaa4cb88bb7e25ef987f9e6",
+                "reference": "13b752f7226c0b1dacaa4cb88bb7e25ef987f9e6",
                 "shasum": ""
             },
             "require": {
@@ -2738,7 +2738,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-09-24T07:26:38+00:00"
+            "time": "2017-10-23T05:02:20+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3134,21 +3134,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "fb3213355da37bf91569ca7a944af19bc57b80e9"
+                "reference": "f805963ee2e7d38a474d6ebc8961b1854eed210a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/fb3213355da37bf91569ca7a944af19bc57b80e9",
-                "reference": "fb3213355da37bf91569ca7a944af19bc57b80e9",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/f805963ee2e7d38a474d6ebc8961b1854eed210a",
+                "reference": "f805963ee2e7d38a474d6ebc8961b1854eed210a",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
                 "sebastian/diff": "^2.0",
-                "sebastian/exporter": "^3.0"
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
@@ -3190,7 +3190,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-20T14:03:32+00:00"
+            "time": "2017-11-01T08:33:06+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -3198,12 +3198,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "347c1d8b49c5c3ee30c7040ea6fc446790e6bddd"
+                "reference": "376cb25efae48c66fb660c9ce7bc07e1682b5e84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/347c1d8b49c5c3ee30c7040ea6fc446790e6bddd",
-                "reference": "347c1d8b49c5c3ee30c7040ea6fc446790e6bddd",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/376cb25efae48c66fb660c9ce7bc07e1682b5e84",
+                "reference": "376cb25efae48c66fb660c9ce7bc07e1682b5e84",
                 "shasum": ""
             },
             "require": {
@@ -3242,7 +3242,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-08-03T08:09:46+00:00"
+            "time": "2017-10-05T13:24:46+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -4661,7 +4661,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-08-19T17:43:10+00:00"
+            "time": "2017-08-19 17:43:10"
         },
         {
             "name": "upstatement/routes",
@@ -4863,20 +4863,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-eventmanager.git",
-                "reference": "071016ade1deee5b8346ec9d8d48935437746c37"
+                "reference": "969821ae236411f1540fa9a0267246ef07b02189"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/071016ade1deee5b8346ec9d8d48935437746c37",
-                "reference": "071016ade1deee5b8346ec9d8d48935437746c37",
+                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/969821ae236411f1540fa9a0267246ef07b02189",
+                "reference": "969821ae236411f1540fa9a0267246ef07b02189",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "athletic/athletic": "^0.1",
                 "container-interop/container-interop": "^1.1.0",
+                "phpbench/phpbench": "^0.13",
                 "phpunit/phpunit": "^6.0.7 || ^5.7.14",
                 "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-stdlib": "^2.7.3 || ^3.0"
@@ -4909,7 +4909,7 @@
                 "events",
                 "zf2"
             ],
-            "time": "2017-07-11T19:19:12+00:00"
+            "time": "2017-10-09T10:07:30+00:00"
         }
     ],
     "aliases": [],
