@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "11b983fbf9082c145a8d50569d825e70",
+    "content-hash": "be20c50b27cf1578c5c56d8515258866",
     "packages": [
         {
             "name": "composer/installers",
@@ -283,20 +283,20 @@
                 "MIT"
             ],
             "description": "Push commits made via the Pantheon dashboard back to original GitHub repository.",
-            "time": "2017-07-22 19:59:43"
+            "time": "2017-07-22T19:59:43+00:00"
         },
         {
             "name": "pantheon-systems/wordpress-composer",
-            "version": "dev-master",
+            "version": "4.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/wordpress-composer.git",
-                "reference": "5f0725b3cdbeeb53fa49e1afcfc8237cbfba3355"
+                "reference": "3c90fee285e7d9a9c9034be24d65445bef84c191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/5f0725b3cdbeeb53fa49e1afcfc8237cbfba3355",
-                "reference": "5f0725b3cdbeeb53fa49e1afcfc8237cbfba3355",
+                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/3c90fee285e7d9a9c9034be24d65445bef84c191",
+                "reference": "3c90fee285e7d9a9c9034be24d65445bef84c191",
                 "shasum": ""
             },
             "require": {
@@ -314,10 +314,10 @@
             ],
             "description": "WordPress for Pantheon with a composer.json file.",
             "support": {
-                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/4.8.2",
+                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/4.8.3",
                 "issues": "https://github.com/pantheon-systems/wordpress-composer/issues"
             },
-            "time": "2017-09-19T23:18:39+00:00"
+            "time": "2017-10-31T18:09:38+00:00"
         },
         {
             "name": "roots/wp-password-bcrypt",
@@ -420,12 +420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/starter-theme.git",
-                "reference": "317f6c649b8aae07bb6651aec8a45e912d797d0b"
+                "reference": "c7e064d09aba3ff2ce27ce76682399bf58e3535f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/starter-theme/zipball/317f6c649b8aae07bb6651aec8a45e912d797d0b",
-                "reference": "317f6c649b8aae07bb6651aec8a45e912d797d0b",
+                "url": "https://api.github.com/repos/timber/starter-theme/zipball/c7e064d09aba3ff2ce27ce76682399bf58e3535f",
+                "reference": "c7e064d09aba3ff2ce27ce76682399bf58e3535f",
                 "shasum": ""
             },
             "require": {
@@ -448,7 +448,7 @@
                 }
             ],
             "description": "Starter theme to build a Timber theme",
-            "time": "2017-08-17T22:23:22+00:00"
+            "time": "2017-10-06 02:20:11"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -498,7 +498,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2017-08-08T20:02:34+00:00"
+            "time": "2017-08-08 20:02:34"
         },
         {
             "name": "wpackagist-plugin/debug-bar",
@@ -852,7 +852,7 @@
                 "extension",
                 "twig"
             ],
-            "time": "2017-01-10T22:04:15+00:00"
+            "time": "2017-01-10 22:04:15"
         },
         {
             "name": "behat/behat",
@@ -1637,7 +1637,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2017-05-20T23:14:18+00:00"
+            "time": "2017-05-20 23:14:18"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1702,7 +1702,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-07-17T09:11:21+00:00"
+            "time": "2017-07-17 09:11:21"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -1812,7 +1812,7 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2017-06-30T04:02:48+00:00"
+            "time": "2017-06-30 04:02:48"
         },
         {
             "name": "mockery/mockery",
@@ -2515,7 +2515,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03T07:40:28+00:00"
+            "time": "2016-10-03 07:40:28"
         },
         {
             "name": "phpunit/php-text-template",
@@ -2738,7 +2738,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-09-24T07:26:38+00:00"
+            "time": "2017-09-24 07:26:38"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3190,7 +3190,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-20T14:03:32+00:00"
+            "time": "2017-08-20 14:03:32"
         },
         {
             "name": "sebastian/diff",
@@ -3242,7 +3242,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-08-03T08:09:46+00:00"
+            "time": "2017-08-03 08:09:46"
         },
         {
             "name": "sebastian/environment",
@@ -4661,7 +4661,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-08-19T17:43:10+00:00"
+            "time": "2017-08-19 17:43:10"
         },
         {
             "name": "upstatement/routes",
@@ -4909,7 +4909,7 @@
                 "events",
                 "zf2"
             ],
-            "time": "2017-07-11T19:19:12+00:00"
+            "time": "2017-07-11 19:19:12"
         }
     ],
     "aliases": [],
