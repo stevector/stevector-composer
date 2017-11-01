@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "36ac8cf8e959c68b9867acc46abd3c3f",
+    "content-hash": "be20c50b27cf1578c5c56d8515258866",
     "packages": [
         {
             "name": "composer/installers",
@@ -420,12 +420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/timber/starter-theme.git",
-                "reference": "c7e064d"
+                "reference": "c7e064d09aba3ff2ce27ce76682399bf58e3535f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timber/starter-theme/zipball/c7e064d",
-                "reference": "c7e064d",
+                "url": "https://api.github.com/repos/timber/starter-theme/zipball/c7e064d09aba3ff2ce27ce76682399bf58e3535f",
+                "reference": "c7e064d09aba3ff2ce27ce76682399bf58e3535f",
                 "shasum": ""
             },
             "require": {
