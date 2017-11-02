@@ -23,7 +23,7 @@
         "composer/installers": "^1.3.0",
         "makotokw/wp-gfm": "dev-master",
         "pantheon-systems/quicksilver-pushback": "dev-master",
-        "pantheon-systems/wordpress-composer": "^4.8.1",
+        "pantheon-systems/wordpress-composer": "4.8.3",
         "roots/wp-password-bcrypt": "^1.0.0",
         "rvtraveller/qs-composer-installer": "^1.1",
         "upstatement/timber-starter-theme": "dev-master",
