@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b19e75bdad0f7df7b4ce1f151c9393d8",
+    "content-hash": "a37a67b0f21b1f512613a82424c096e4",
     "packages": [
         {
             "name": "composer/installers",
@@ -705,6 +705,26 @@
             },
             "type": "wordpress-theme",
             "homepage": "https://wordpress.org/themes/twentyseventeen/"
+        },
+        {
+            "name": "wpackagist-theme/understrap",
+            "version": "0.6.9.3",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/understrap/",
+                "reference": "0.6.9.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/understrap.0.6.9.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/understrap/"
         }
     ],
     "packages-dev": [
