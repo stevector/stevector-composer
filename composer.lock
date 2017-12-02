@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b19e75bdad0f7df7b4ce1f151c9393d8",
+    "content-hash": "f72478c49d62cba6dcd451685a3ee664",
     "packages": [
         {
             "name": "composer/installers",
@@ -562,6 +562,27 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/dependency-minification/",
             "time": "2015-02-25T01:46:46+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/lockr",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/lockr/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/lockr.zip?timestamp=1488223330",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/lockr/",
+            "time": "2017-02-27T19:22:10+00:00"
         },
         {
             "name": "wpackagist-plugin/pantheon-advanced-page-cache",
@@ -4921,6 +4942,7 @@
         "wpackagist-plugin/debug-bar": 20,
         "wpackagist-plugin/debug-bar-timber": 20,
         "wpackagist-plugin/dependency-minification": 20,
+        "wpackagist-plugin/lockr": 20,
         "wpackagist-plugin/redirection": 20,
         "wpackagist-plugin/wp-cfm": 20,
         "wpackagist-plugin/wp-github-sync": 20,
