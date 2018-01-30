@@ -22,7 +22,7 @@ defaults: &defaults
     TZ: "/usr/share/zoneinfo/America/Los_Angeles"
 
     # The variables below usually do not need to be modified.
-    
+
     #======================================================================================================================================
     # Circle CI 2.0 does not yet expand environment variables so they have to be manually EXPORTed
     # Once environment variables can be expanded the variables below can be uncommented and the EXPORTs in set-up-globals.sh can be removed
@@ -31,7 +31,7 @@ defaults: &defaults
     # See: https://discuss.circleci.com/t/circle-2-0-global-environment-variables/8681
     #======================================================================================================================================
     # See set-up-globals.sh for more environment variables
-    
+
     NOTIFY: 'scripts/github/add-commit-comment {project} {sha} "Created multidev environment [{site}#{env}]({dashboard-url})." {site-url}'
     ADMIN_USERNAME: admin
     BUILD_TOOLS_VERSION: dev-master
@@ -93,7 +93,7 @@ jobs:
             - run:
                 name: check for WordPress coding standards
                 command: composer -n code-sniff
-            
+
             - run:
                 name: run unit tests
                 command: composer -n unit-test
@@ -136,7 +136,7 @@ jobs:
             - run:
                 name: copy vendor
                 command: cp -r /tmp/vendor .
-            
+
             - run:
                 name: dependencies
                 command: ./.circleci/set-up-globals.sh
@@ -183,7 +183,6 @@ jobs:
                 path: /tmp/artifacts
                 destination: artifacts
 
-
     backstop:
         docker:
             - image: quay.io/stevector/ci-backstop:master
@@ -201,9 +200,6 @@ jobs:
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
-
-
-
 
 
 workflows:
