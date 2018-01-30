@@ -1,6 +1,7 @@
 
 const BackstopReferenceBaseUrl = process.env.PANTHEON_DEV_SITE_URL;
 const BackstopTestUrl = process.env.PANTHEON_SITE_URL;
+const OutputBasePath = process.env.CIRCLE_ARTIFACTS_DIR;
 
 const config = {
   "id": "backstop_default",
@@ -37,11 +38,11 @@ const config = {
     }
   ],
   "paths": {
-    "bitmaps_reference": "backstop_data/bitmaps_reference",
-    "bitmaps_test": "backstop_data/bitmaps_test",
-    "engine_scripts": "backstop_data/engine_scripts",
-    "html_report": "backstop_data/html_report",
-    "ci_report": "backstop_data/ci_report"
+    "bitmaps_reference": OutputBasePath + "/backstop_data/bitmaps_reference",
+    "bitmaps_test": OutputBasePath + "/backstop_data/bitmaps_test",
+    "engine_scripts": OutputBasePath + "/backstop_data/engine_scripts",
+    "html_report": OutputBasePath + "/backstop_data/html_report",
+    "ci_report": OutputBasePath + "/backstop_data/ci_report"
   },
   "report": ["browser"],
   "engine": "chrome",
