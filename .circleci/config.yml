@@ -41,7 +41,7 @@ defaults: &defaults
 version: 2
 jobs:
     # @todo: common initialization, maybe
-    realbuild:
+    build:
         <<: *defaults
         steps:
             - checkout
@@ -184,7 +184,7 @@ jobs:
                 destination: artifacts
 
 
-    build:
+    backstop:
         docker:
             - image: quay.io/stevector/ci-backstop:master
         working_directory: ~/example_wordpress_composer
@@ -212,15 +212,15 @@ workflows:
     jobs:
       # Install dev dependencies
       - build
-   #   - build_and_deploy
-   #   - backstop:
-    #      requires:
-    #        - build
-    #        - build_and_deploy
-    #  - lighthouse:
-    #      requires:
-    #        - build
-    #        - build_and_deploy
+      - build_and_deploy
+      - backstop:
+          requires:
+            - build
+            - build_and_deploy
+      - lighthouse:
+          requires:
+            - build
+            - build_and_deploy
             # Run Behat tests after deploy so they can be done on Pantheon
       # Code sniff and unit text first
 
