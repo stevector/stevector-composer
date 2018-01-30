@@ -11,12 +11,9 @@ mkdir -p $CIRCLE_ARTIFACTS_DIR
 CIRCLE_ARTIFACTS_URL="$CIRCLE_BUILD_URL/artifacts/$CIRCLE_NODE_INDEX/$CIRCLE_ARTIFACTS"
 
 
-# Update the URLs in the backstop file to use the new multidev
-CWD=$(pwd)
-sed -i -e "s/dev-${TERMINUS_SITE}/${TERMINUS_ENV}-${TERMINUS_SITE}/g" ${CWD}"/backstop.json"
 
-backstop reference
-VISUAL_REGRESSION_RESULTS=$(backstop test || echo 'true')
+backstop reference --config=backstop-config.js
+VISUAL_REGRESSION_RESULTS=$(backstop test --config=backstop-config.js || echo 'true')
 
 rsync -rlvz backstop_data $CIRCLE_ARTIFACTS_DIR
 
