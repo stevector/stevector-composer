@@ -1,4 +1,8 @@
-{
+
+const BackstopReferenceBaseUrl = process.env.PANTHEON_DEV_SITE_URL;
+const BackstopTestUrl = process.env.PANTHEON_SITE_URL;
+
+const config = {
   "id": "backstop_default",
   "viewports": [
     {
@@ -17,8 +21,8 @@
   "scenarios": [
     {
       "label": "Homepage",
-      "url": "https://dev-stevector-composer.pantheonsite.io/",
-      "referenceUrl": "https://www.stevector.com/",
+      "url": BackstopTestUrl,
+      "referenceUrl": BackstopReferenceBaseUrl,
       "readyEvent": "",
       "readySelector": "",
       "delay": 0,
@@ -45,3 +49,5 @@
   "debug": false,
   "debugWindow": false
 }
+
+module.exports = config;
