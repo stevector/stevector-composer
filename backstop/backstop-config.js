@@ -3,6 +3,11 @@ const BackstopReferenceBaseUrl = process.env.PANTHEON_DEV_SITE_URL;
 const BackstopTestUrl = process.env.PANTHEON_SITE_URL;
 const OutputBasePath = process.env.CIRCLE_ARTIFACTS_DIR;
 
+
+console.log(OutputBasePath );
+
+console.log('debugging');
+
 const config = {
   "id": "backstop_default",
   "viewports": [
