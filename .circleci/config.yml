@@ -160,7 +160,6 @@ jobs:
                 # Set TERMINUS_ENV and related environment variables.
                 # https://github.com/stevector/docker-build-tools-ci/blob/master/dockerfiles/pantheon-ci-testing/scripts/set-up-global-vars.sh
                 command: /build-tools-ci/scripts/set-up-global-vars.sh
-
             - run:
                 name: install lighthouse-ci
                 command: |
