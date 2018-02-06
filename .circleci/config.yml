@@ -151,7 +151,7 @@ jobs:
     # config.yml file.
     lighthouse:
         docker:
-            - image: quay.io/stevector/pantheon-ci-testing:master
+            - image: quay.io/stevector/ci-lighthouse:master
         working_directory: ~/example_wordpress_composer
         steps:
             - checkout
