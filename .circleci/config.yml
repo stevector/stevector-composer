@@ -173,7 +173,7 @@ jobs:
                 name: lighthouse
                 command: |
                   cd /tmp/artifacts
-                  lighthouse --chrome-flags="--headless --disable-gpu" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
+                  lighthouse --chrome-flags="--headless --disable-gpu --no-sandbox" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
             - run:
                 name: report results
                 command: |
