@@ -151,7 +151,7 @@ jobs:
     # config.yml file.
     lighthouse:
         docker:
-            - image: quay.io/stevector/pantheon-ci-testing:master
+            - image: quay.io/stevector/ci-lighthouse:master
         working_directory: ~/example_wordpress_composer
         steps:
             - checkout
@@ -160,7 +160,6 @@ jobs:
                 # Set TERMINUS_ENV and related environment variables.
                 # https://github.com/stevector/docker-build-tools-ci/blob/master/dockerfiles/pantheon-ci-testing/scripts/set-up-global-vars.sh
                 command: /build-tools-ci/scripts/set-up-global-vars.sh
-
             - run:
                 name: install lighthouse-ci
                 command: |
@@ -172,8 +171,11 @@ jobs:
             - run:
                 name: lighthouse
                 command: |
+                  # curl the homepage to prime varnish cache.
+                  curl https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
+                  sleep 1
                   cd /tmp/artifacts
-                  lighthouse --chrome-flags="--headless --disable-gpu" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
+                  lighthouse --chrome-flags="--headless --disable-gpu --no-sandbox" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
             - run:
                 name: report results
                 command: |
@@ -200,7 +202,6 @@ jobs:
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
-
 
 workflows:
   version: 2
