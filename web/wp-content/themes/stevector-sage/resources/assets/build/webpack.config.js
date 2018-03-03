@@ -171,6 +171,8 @@ let webpackConfig = {
         eslint: { failOnWarning: false, failOnError: true },
       },
     }),
+
+    // @todo, bring back Sass linting
     // new StyleLintPlugin({
     //   failOnError: !config.enabled.watcher,
     //   syntax: 'scss',
