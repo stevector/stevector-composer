@@ -1,0 +1,47 @@
+
+/* see https://github.com/roots/sage/issues/2017 */
+body pre,
+body code {
+  color: #772222;
+}
+
+article {
+  border-bottom: 2px #ccc solid;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.brand {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 3rem;
+}
+
+body h1 {
+  margin: 1rem 0;
+}
+
+@import "common/variables";
+
+/** Import everything from autoload */
+@import "./autoload/**/*";
+
+/**
+ * Import npm dependencies
+ *
+ * Prefix your imports with `~` to grab from node_modules/
+ * @see https://github.com/webpack-contrib/sass-loader#imports
+ */
+// @import "~some-node-module";
+
+/** Import theme styles */
+@import "common/global";
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+@import "components/wp-classes";
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
+@import "layouts/pages";
+@import "layouts/posts";
+@import "layouts/tinymce";

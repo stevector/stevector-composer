@@ -85,8 +85,11 @@
     },
     "scripts": {
         "build-assets": [
-            "@prepare-for-pantheon",
-            "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress"
+            "echo '@todo yarn build:production in stevector-sage'",
+            "composer install --working-dir='web/wp-content/themes/stevector-sage'",
+            "composer install --no-dev --no-ansi --no-interaction --optimize-autoloader --no-progress",
+            "@prepare-for-pantheon"
+
         ],
         "prepare-for-pantheon": "WordPressProject\\composer\\ScriptHandler::prepareForPantheon",
         "cleanup": [
