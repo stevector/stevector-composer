@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b19e75bdad0f7df7b4ce1f151c9393d8",
+    "content-hash": "3a15bbcff9e51628378f0d4d626c7b8e",
     "packages": [
         {
             "name": "composer/installers",
@@ -172,95 +172,6 @@
             "time": "2015-06-11T15:15:30+00:00"
         },
         {
-            "name": "makotokw/wp-gfm",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stevector/wp-gfm.git",
-                "reference": "bd60346e1395f248e7b9b534262374a89ce94eab"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stevector/wp-gfm/zipball/bd60346e1395f248e7b9b534262374a89ce94eab",
-                "reference": "bd60346e1395f248e7b9b534262374a89ce94eab",
-                "shasum": ""
-            },
-            "require": {
-                "michelf/php-markdown": "1.7.*@dev",
-                "php": ">=5.3"
-            },
-            "type": "wordpress-plugin",
-            "autoload": {
-                "psr-0": {
-                    "Gfm\\Markdown\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Makoto Kawasaki",
-                    "email": "makoto.kw@gmail.com"
-                }
-            ],
-            "support": {
-                "source": "https://github.com/stevector/wp-gfm/tree/master"
-            },
-            "time": "2017-09-24T15:23:32+00:00"
-        },
-        {
-            "name": "michelf/php-markdown",
-            "version": "1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/michelf/php-markdown.git",
-                "reference": "1f51cc520948f66cd2af8cbc45a5ee175e774220"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/1f51cc520948f66cd2af8cbc45a5ee175e774220",
-                "reference": "1f51cc520948f66cd2af8cbc45a5ee175e774220",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-lib": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Michelf": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Michel Fortin",
-                    "email": "michel.fortin@michelf.ca",
-                    "homepage": "https://michelf.ca/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "John Gruber",
-                    "homepage": "https://daringfireball.net/"
-                }
-            ],
-            "description": "PHP Markdown",
-            "homepage": "https://michelf.ca/projects/php-markdown/",
-            "keywords": [
-                "markdown"
-            ],
-            "time": "2016-10-29T18:58:20+00:00"
-        },
-        {
             "name": "pantheon-systems/quicksilver-pushback",
             "version": "dev-master",
             "source": {
@@ -283,7 +194,7 @@
                 "MIT"
             ],
             "description": "Push commits made via the Pantheon dashboard back to original GitHub repository.",
-            "time": "2017-07-22T19:59:43+00:00"
+            "time": "2017-07-22 19:59:43"
         },
         {
             "name": "pantheon-systems/wordpress-composer",
@@ -415,42 +326,6 @@
             "time": "2017-01-27T20:40:31+00:00"
         },
         {
-            "name": "upstatement/timber-starter-theme",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/timber/starter-theme.git",
-                "reference": "317f6c649b8aae07bb6651aec8a45e912d797d0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/timber/starter-theme/zipball/317f6c649b8aae07bb6651aec8a45e912d797d0b",
-                "reference": "317f6c649b8aae07bb6651aec8a45e912d797d0b",
-                "shasum": ""
-            },
-            "require": {
-                "wpackagist-plugin/timber-library": "0.22.*"
-            },
-            "type": "wordpress-theme",
-            "extra": {
-                "installer-paths": {
-                    "../../plugins/{$name}/": [
-                        "wpackagist-plugin/*",
-                        "type:wordpress-plugin"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "jarednova",
-                    "email": "jared@upstatement.com"
-                }
-            ],
-            "description": "Starter theme to build a Timber theme",
-            "time": "2017-08-17 22:23:22"
-        },
-        {
             "name": "vlucas/phpdotenv",
             "version": "dev-master",
             "source": {
@@ -498,7 +373,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2017-08-08 20:02:34"
+            "time": "2017-08-08T20:02:34+00:00"
         },
         {
             "name": "wpackagist-plugin/debug-bar",
@@ -520,48 +395,6 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/debug-bar/",
             "time": "2017-05-15T12:59:36+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/debug-bar-timber",
-            "version": "dev-trunk",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/debug-bar-timber/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/debug-bar-timber.zip?timestamp=1471999092",
-                "reference": "trunk",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/debug-bar-timber/",
-            "time": "2016-08-24T01:38:12+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/dependency-minification",
-            "version": "dev-trunk",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/dependency-minification/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/dependency-minification.zip?timestamp=1424828806",
-                "reference": "trunk",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/dependency-minification/",
-            "time": "2015-02-25T01:46:46+00:00"
         },
         {
             "name": "wpackagist-plugin/pantheon-advanced-page-cache",
@@ -605,26 +438,6 @@
             "time": "2017-08-26T10:30:21+00:00"
         },
         {
-            "name": "wpackagist-plugin/timber-library",
-            "version": "0.22.6",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/0.22.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.0.22.6.zip",
-                "reference": "tags/0.22.6",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/timber-library/"
-        },
-        {
             "name": "wpackagist-plugin/wp-cfm",
             "version": "dev-trunk",
             "source": {
@@ -644,47 +457,6 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-cfm/",
             "time": "2016-07-08T03:12:44+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/wp-github-sync",
-            "version": "dev-trunk",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-github-sync/",
-                "reference": "trunk"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-github-sync.zip?timestamp=1499034061",
-                "reference": "trunk",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-github-sync/",
-            "time": "2017-07-02T23:21:01+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/wp-native-php-sessions",
-            "version": "0.6.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-native-php-sessions/",
-                "reference": "tags/0.6.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-native-php-sessions.0.6.2.zip",
-                "reference": "tags/0.6.2",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-native-php-sessions/"
         },
         {
             "name": "wpackagist-theme/twentyseventeen",
@@ -852,7 +624,7 @@
                 "extension",
                 "twig"
             ],
-            "time": "2017-01-10 22:04:15"
+            "time": "2017-01-10T22:04:15+00:00"
         },
         {
             "name": "behat/behat",
@@ -1637,7 +1409,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2017-05-20 23:14:18"
+            "time": "2017-05-20T23:14:18+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1702,7 +1474,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-07-17 09:11:21"
+            "time": "2017-07-17T09:11:21+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -1812,7 +1584,96 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2017-06-30 04:02:48"
+            "time": "2017-06-30T04:02:48+00:00"
+        },
+        {
+            "name": "makotokw/wp-gfm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stevector/wp-gfm.git",
+                "reference": "bd60346e1395f248e7b9b534262374a89ce94eab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stevector/wp-gfm/zipball/bd60346e1395f248e7b9b534262374a89ce94eab",
+                "reference": "bd60346e1395f248e7b9b534262374a89ce94eab",
+                "shasum": ""
+            },
+            "require": {
+                "michelf/php-markdown": "1.7.*@dev",
+                "php": ">=5.3"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-0": {
+                    "Gfm\\Markdown\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Makoto Kawasaki",
+                    "email": "makoto.kw@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/stevector/wp-gfm/tree/master"
+            },
+            "time": "2017-09-24 15:23:32"
+        },
+        {
+            "name": "michelf/php-markdown",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-markdown.git",
+                "reference": "1f51cc520948f66cd2af8cbc45a5ee175e774220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/1f51cc520948f66cd2af8cbc45a5ee175e774220",
+                "reference": "1f51cc520948f66cd2af8cbc45a5ee175e774220",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-lib": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Michelf": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "https://daringfireball.net/"
+                }
+            ],
+            "description": "PHP Markdown",
+            "homepage": "https://michelf.ca/projects/php-markdown/",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2016-10-29T18:58:20+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -2515,7 +2376,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03 07:40:28"
+            "time": "2016-10-03T07:40:28+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -2738,7 +2599,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-09-24 07:26:38"
+            "time": "2017-09-24T07:26:38+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3190,7 +3051,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-20 14:03:32"
+            "time": "2017-08-20T14:03:32+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -3242,7 +3103,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-08-03 08:09:46"
+            "time": "2017-08-03T08:09:46+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -4661,7 +4522,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-08-19 17:43:10"
+            "time": "2017-08-19T17:43:10+00:00"
         },
         {
             "name": "upstatement/routes",
@@ -4805,6 +4666,109 @@
             "time": "2017-08-05T16:08:58+00:00"
         },
         {
+            "name": "wpackagist-plugin/debug-bar-timber",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/debug-bar-timber/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/debug-bar-timber.zip?timestamp=1471999092",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/debug-bar-timber/",
+            "time": "2016-08-24T01:38:12+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/dependency-minification",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/dependency-minification/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/dependency-minification.zip?timestamp=1424828806",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/dependency-minification/",
+            "time": "2015-02-25T01:46:46+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/timber-library",
+            "version": "0.22.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/timber-library/",
+                "reference": "tags/0.22.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/timber-library.0.22.6.zip",
+                "reference": "tags/0.22.6",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/timber-library/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-github-sync",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-github-sync/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-github-sync.zip?timestamp=1499034061",
+                "reference": "trunk",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-github-sync/",
+            "time": "2017-07-02T23:21:01+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wp-native-php-sessions",
+            "version": "0.6.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-native-php-sessions/",
+                "reference": "tags/0.6.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-native-php-sessions.0.6.2.zip",
+                "reference": "tags/0.6.2",
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-native-php-sessions/"
+        },
+        {
             "name": "zendframework/zend-code",
             "version": "3.1.0",
             "source": {
@@ -4909,21 +4873,16 @@
                 "events",
                 "zf2"
             ],
-            "time": "2017-07-11 19:19:12"
+            "time": "2017-07-11T19:19:12+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "makotokw/wp-gfm": 20,
         "pantheon-systems/quicksilver-pushback": 20,
-        "upstatement/timber-starter-theme": 20,
         "wpackagist-plugin/debug-bar": 20,
-        "wpackagist-plugin/debug-bar-timber": 20,
-        "wpackagist-plugin/dependency-minification": 20,
         "wpackagist-plugin/redirection": 20,
         "wpackagist-plugin/wp-cfm": 20,
-        "wpackagist-plugin/wp-github-sync": 20,
         "roave/security-advisories": 20,
         "wp-coding-standards/wpcs": 20
     },

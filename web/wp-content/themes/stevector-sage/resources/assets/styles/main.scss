@@ -22,7 +22,10 @@ body h1 {
 
 @import "common/variables";
 
-/** Import everything from autoload */
+/** Import everything from autoload
+ * @todo https://github.com/stevector/stevector-composer/issues/35
+ */
+
 @import "./autoload/**/*";
 
 /**
