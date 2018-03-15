@@ -8,9 +8,9 @@ const simple_scenarios_paths = [
     // @todo, get at least one path for each node type
     // and any other important pages.
 
-    "2013/08/fixing-typos-with-jekyll-and-github/",
+   // "2013/08/fixing-typos-with-jekyll-and-github/",
     "2013/06/plugin-haikus-drupalcon-portland-presentation/",
-    "2013/06/another-jekyll-blog/",
+    // "2013/06/another-jekyll-blog/",
     "2016/09/drupal-7-to-8-migration-diary-part-4-migrating-remote-files-and-swapping-a-service-class/",
     "2016/06/drupal-7-to-8-migration-diary-part-3-regression-found/",
     "2016/06/drupal-7-to-8-migration-diary-part-2-using-configuration-installer-to-delay-a-canonical-database/",
