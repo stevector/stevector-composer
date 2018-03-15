@@ -13,20 +13,21 @@ article {
 
 .brand {
   font-family: "Courier New", Courier, monospace;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 body h1 {
   margin: 1rem 0;
 }
 
-@import "common/variables";
+// @import "common/variables";
 
 /** Import everything from autoload
  * @todo https://github.com/stevector/stevector-composer/issues/35
  */
 
-@import "./autoload/**/*";
+//@import "./autoload/**/*";
+@import "./autoload/bootstrap-filtered";
 
 /**
  * Import npm dependencies
@@ -37,14 +38,14 @@ body h1 {
 // @import "~some-node-module";
 
 /** Import theme styles */
-@import "common/global";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
+// @import "common/global";
+//@import "components/buttons";
+// @import "components/comments";
+// @import "components/forms";
 @import "components/wp-classes";
-@import "layouts/header";
-@import "layouts/sidebar";
-@import "layouts/footer";
-@import "layouts/pages";
-@import "layouts/posts";
-@import "layouts/tinymce";
+// @import "layouts/header";
+// @import "layouts/sidebar";
+// @import "layouts/footer";
+//@import "layouts/pages";
+// @import "layouts/posts";
+//@import "layouts/tinymce";
