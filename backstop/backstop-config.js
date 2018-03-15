@@ -9,16 +9,16 @@ const simple_scenarios_paths = [
     // and any other important pages.
 
    // "2013/08/fixing-typos-with-jekyll-and-github/",
-    "2013/06/plugin-haikus-drupalcon-portland-presentation/",
+    "/2013/06/plugin-haikus-drupalcon-portland-presentation/",
     // "2013/06/another-jekyll-blog/",
-    "2016/09/drupal-7-to-8-migration-diary-part-4-migrating-remote-files-and-swapping-a-service-class/",
-    "2016/06/drupal-7-to-8-migration-diary-part-3-regression-found/",
-    "2016/06/drupal-7-to-8-migration-diary-part-2-using-configuration-installer-to-delay-a-canonical-database/",
-    "2016/06/drupal-7-to-drupal-8-migration-diary-part-1-what-have-i-gotten-myself-into/",
-    "2016/05/the-year-gone-by-the-months-ahead/",
-    "2015/06/drupalcon-la-html/",
-    "2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/",
-    "2013/10/make-your-drupal-8-theme-easier-to-maintain-with-this-one-weird-trick-twigs-extends-concept/"
+    "/2016/09/drupal-7-to-8-migration-diary-part-4-migrating-remote-files-and-swapping-a-service-class/",
+    "/2016/06/drupal-7-to-8-migration-diary-part-3-regression-found/",
+    "/2016/06/drupal-7-to-8-migration-diary-part-2-using-configuration-installer-to-delay-a-canonical-database/",
+    "/2016/06/drupal-7-to-drupal-8-migration-diary-part-1-what-have-i-gotten-myself-into/",
+    "/2016/05/the-year-gone-by-the-months-ahead/",
+    "/2015/06/drupalcon-la-html/",
+    "/2014/01/i-graphed-my-skyrocketing-exclamation-point-usage/",
+    "/2013/10/make-your-drupal-8-theme-easier-to-maintain-with-this-one-weird-trick-twigs-extends-concept/"
 ];
 
 const config = {
