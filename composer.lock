@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a15bbcff9e51628378f0d4d626c7b8e",
+    "content-hash": "1f0afc7d51797e76c7e5899ee2b0949e",
     "packages": [
         {
             "name": "composer/installers",
@@ -198,16 +198,16 @@
         },
         {
             "name": "pantheon-systems/wordpress-composer",
-            "version": "4.8.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/wordpress-composer.git",
-                "reference": "3c90fee285e7d9a9c9034be24d65445bef84c191"
+                "reference": "5244f07c144788c8fdf1c55dd29659936dd4b9f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/3c90fee285e7d9a9c9034be24d65445bef84c191",
-                "reference": "3c90fee285e7d9a9c9034be24d65445bef84c191",
+                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/5244f07c144788c8fdf1c55dd29659936dd4b9f7",
+                "reference": "5244f07c144788c8fdf1c55dd29659936dd4b9f7",
                 "shasum": ""
             },
             "require": {
@@ -225,10 +225,10 @@
             ],
             "description": "WordPress for Pantheon with a composer.json file.",
             "support": {
-                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/4.8.3",
+                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/4.9.5",
                 "issues": "https://github.com/pantheon-systems/wordpress-composer/issues"
             },
-            "time": "2017-10-31T18:09:38+00:00"
+            "time": "2018-04-04 15:51:06"
         },
         {
             "name": "roots/wp-password-bcrypt",
