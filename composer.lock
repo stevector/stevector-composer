@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f0afc7d51797e76c7e5899ee2b0949e",
+    "content-hash": "584806f366d2f0c492aefd95b806728a",
     "packages": [
         {
             "name": "composer/installers",
@@ -395,6 +395,27 @@
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/debug-bar/",
             "time": "2017-05-15T12:59:36+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/gutenberg",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/gutenberg/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.zip?timestamp=1525369329",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/gutenberg/",
+            "time": "2018-05-03T18:42:09+00:00"
         },
         {
             "name": "wpackagist-plugin/pantheon-advanced-page-cache",
@@ -4881,6 +4902,7 @@
     "stability-flags": {
         "pantheon-systems/quicksilver-pushback": 20,
         "wpackagist-plugin/debug-bar": 20,
+        "wpackagist-plugin/gutenberg": 20,
         "wpackagist-plugin/redirection": 20,
         "wpackagist-plugin/wp-cfm": 20,
         "roave/security-advisories": 20,
