@@ -177,7 +177,8 @@ add_theme_support( 'disable-custom-colors' );
  * Enqueue WordPress theme styles within Gutenberg.
  */
 function mytheme_gutenberg_styles() {
-	// Load the theme styles within Gutenberg.
-    wp_enqueue_style('sage/main.css', asset_path('styles/gutenberg.css'), false, null);
+    // Load the theme styles within Gutenberg.
+    wp_enqueue_style('sage/main.css', App\asset_path('styles/gutenberg.css'), false, null);
+
 }
 add_action( 'enqueue_block_editor_assets', 'mytheme_gutenberg_styles' );
