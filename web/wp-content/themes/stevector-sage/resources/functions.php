@@ -178,7 +178,7 @@ add_theme_support( 'disable-custom-colors' );
  */
 function mytheme_gutenberg_styles() {
 	// Load the theme styles within Gutenberg.
-     wp_enqueue_style( 'custom-gutes', "https://pr-42-stevector-composer.pantheonsite.io/wp-content/themes/stevector-sage/resources/gutenberg.css", false, '@@pkg.version', 'all' );
+    wp_enqueue_style('sage/main.css', asset_path('styles/gutenberg.css'), false, null);
      
 }
 add_action( 'enqueue_block_editor_assets', 'mytheme_gutenberg_styles' );
