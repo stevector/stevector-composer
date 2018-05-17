@@ -152,7 +152,7 @@ add_action( 'wp_footer', 'my_deregister_scripts' );
 function mytheme_setup_theme_supported_features() {
     add_theme_support( 'editor-color-palette',
         array(
-            'name' => 'highlighting',
+            'name' => 'highlighted',
             'color' => '#a156b4',
         ),
         array(
