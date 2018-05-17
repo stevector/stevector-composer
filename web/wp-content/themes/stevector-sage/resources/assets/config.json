@@ -4,6 +4,9 @@
       "./scripts/main.js",
       "./styles/main.scss"
     ],
+    "gutenberg": [
+      "./styles/gutenberg.scss"
+    ],
     "customizer": [
       "./scripts/customizer.js"
     ]
