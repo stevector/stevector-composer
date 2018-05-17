@@ -1,5 +1,7 @@
 {
-  "scripts/customizer.js": "scripts/customizer_65647cb1.js",
-  "styles/main.css": "styles/main_65647cb1.css",
-  "scripts/main.js": "scripts/main_65647cb1.js"
+  "scripts/customizer.js": "scripts/customizer_13fc65c4.js",
+  "styles/gutenberg.css": "styles/gutenberg_13fc65c4.css",
+  "scripts/gutenberg.js": "scripts/gutenberg_13fc65c4.js",
+  "styles/main.css": "styles/main_13fc65c4.css",
+  "scripts/main.js": "scripts/main_13fc65c4.js"
 }

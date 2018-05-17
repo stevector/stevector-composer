@@ -147,3 +147,38 @@ function my_deregister_scripts(){
     wp_dequeue_script( 'wp-embed' );
 }
 add_action( 'wp_footer', 'my_deregister_scripts' );
+
+
+function mytheme_setup_theme_supported_features() {
+    add_theme_support( 'editor-color-palette',
+        array(
+            'name' => 'highlighted',
+            'color' => '#a156b4',
+        ),
+        array(
+            'name' => 'muted-highlight',
+            'color' => '#d0a5db',
+        ),
+        array(
+            'name' => 'annotation-highlight',
+            'color' => '#eee',
+        ),
+        array(
+            'name' => 'footnote',
+            'color' => '#444',
+        )
+    );
+}
+
+add_action( 'after_setup_theme', 'mytheme_setup_theme_supported_features' );
+add_theme_support( 'disable-custom-colors' );
+
+/**
+ * Enqueue WordPress theme styles within Gutenberg.
+ */
+function mytheme_gutenberg_styles() {
+    // Load the theme styles within Gutenberg.
+    wp_enqueue_style('sage/main.css', App\asset_path('styles/gutenberg.css'), false, null);
+
+}
+add_action( 'enqueue_block_editor_assets', 'mytheme_gutenberg_styles' );
