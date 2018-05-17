@@ -1,0 +1,31 @@
+.has-highlighted-background-color {
+    background-color: #a156b4;
+}
+
+.has-muted-highlight-background-color {
+    background-color: #d0a5db;
+}
+
+.has-annotation-highlight-background-color {
+    background-color: #eee;
+}
+
+.has-footnote-background-color {
+    background-color: #444;
+}
+
+.has-highlighted-color {
+    color: #a156b4;
+}
+
+.has-muted-highlight-color {
+    color: #d0a5db;
+}
+
+.has-annotation-highlight-color {
+    color: #eee;
+}
+
+.has-footnote-color {
+    color: #444;
+}
