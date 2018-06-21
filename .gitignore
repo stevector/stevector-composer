@@ -34,6 +34,7 @@ web/private/*
 web/private/scripts/quicksilver
 !web/private/config/
 !.circleci
+!web/wp-content/themes/stevector-sage/
 
 # Add directories containing build assets below.
 # Keep all additions above the "cut" line.
