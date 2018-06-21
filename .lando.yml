@@ -1,0 +1,6 @@
+name: ewc-sp
+recipe: pantheon
+config:
+  framework: wordpress
+  site: ewc-sp
+  id: fcdeaa22-ca23-4f18-984b-2450d868f976
