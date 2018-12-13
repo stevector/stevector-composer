@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f0afc7d51797e76c7e5899ee2b0949e",
+    "content-hash": "8d993e21119e1773b37fce14ae311c7d",
     "packages": [
         {
             "name": "composer/installers",
@@ -194,7 +194,7 @@
                 "MIT"
             ],
             "description": "Push commits made via the Pantheon dashboard back to original GitHub repository.",
-            "time": "2017-07-22 19:59:43"
+            "time": "2017-07-22T19:59:43+00:00"
         },
         {
             "name": "pantheon-systems/wordpress-composer",
@@ -202,12 +202,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/wordpress-composer.git",
-                "reference": "5244f07c144788c8fdf1c55dd29659936dd4b9f7"
+                "reference": "95ed1aece8ca8fca671463b02b4a66bb001f46a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/5244f07c144788c8fdf1c55dd29659936dd4b9f7",
-                "reference": "5244f07c144788c8fdf1c55dd29659936dd4b9f7",
+                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/95ed1aece8ca8fca671463b02b4a66bb001f46a5",
+                "reference": "95ed1aece8ca8fca671463b02b4a66bb001f46a5",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
             "type": "wordpress-core",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.x-dev"
+                    "dev-master": "5.x-dev"
                 },
                 "wordpress-install-dir": "web/wp"
             },
@@ -225,10 +225,10 @@
             ],
             "description": "WordPress for Pantheon with a composer.json file.",
             "support": {
-                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/4.9.5",
+                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/5.0.1",
                 "issues": "https://github.com/pantheon-systems/wordpress-composer/issues"
             },
-            "time": "2018-04-04 15:51:06"
+            "time": "2018-12-13T05:07:29+00:00"
         },
         {
             "name": "roots/wp-password-bcrypt",
@@ -1622,7 +1622,7 @@
             "support": {
                 "source": "https://github.com/stevector/wp-gfm/tree/master"
             },
-            "time": "2017-09-24 15:23:32"
+            "time": "2017-09-24T15:23:32+00:00"
         },
         {
             "name": "michelf/php-markdown",
