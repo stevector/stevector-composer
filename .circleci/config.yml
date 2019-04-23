@@ -31,12 +31,25 @@ jobs:
         - run: cd web/wp-content/themes/stevector-sage && npm ci
         - run: cd web/wp-content/themes/stevector-sage && npm run build:production
         - run: git status
+
+        - persist_to_workspace:
+            # Must be relative path from working_directory
+            root: .
+            # Must be relative path from root
+            paths:
+              - web/wp-content/themes/stevector-sage/dist
     # @todo: common initialization, maybe
     build:
       <<: *defaults
       steps:
       - checkout
       - run: /build-tools-ci/scripts/set-environment
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp
+      - run:
+          name: copy production theme
+          command: cp -r /tmp/web/wp-content/themes/stevector-sage/dist/ web/wp-content/themes/stevector-sage/dist/
       - restore_cache:
           keys:
           - composer
