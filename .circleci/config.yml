@@ -18,7 +18,7 @@ commands:
     - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
     - run: source $BASH_ENV
 
-version: 2
+version: 2.1
 jobs:
     npmbuild:
       docker:
