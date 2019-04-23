@@ -40,6 +40,15 @@ defaults: &defaults
 
 version: 2
 jobs:
+
+    npmbuild:
+      docker:
+        - image: node:10.15.3
+      steps:
+        - checkout
+        - run: cd web/wp-content/themes/stevector-sage && npm ci
+        - run: cd web/wp-content/themes/stevector-sage && npm run build:production
+        - run: git status
     # @todo: common initialization, maybe
     build:
         <<: *defaults
@@ -77,6 +86,10 @@ jobs:
                 paths:
                     - vendor
 
+
+
+
+
     code_sniff_unit_test:
         <<: *defaults
         steps:
@@ -97,6 +110,9 @@ jobs:
             - run:
                 name: run unit tests
                 command: composer -n unit-test
+
+
+
 
     build_and_deploy:
         <<: *defaults
@@ -207,16 +223,15 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      # Install dev dependencies
-      - build
-      - build_and_deploy
+      - npmbuild
+      - build_and_deploy:
+          requires:
+            - npmbuild
       - backstop:
           requires:
-            - build
             - build_and_deploy
       - lighthouse:
           requires:
-            - build
             - build_and_deploy
             # Run Behat tests after deploy so they can be done on Pantheon
       # Code sniff and unit text first
