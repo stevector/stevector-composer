@@ -46,7 +46,7 @@ jobs:
           at: /tmp
       - run:
           name: copy production theme
-          command: cp -r /tmp/web/wp-content/themes/stevector-sage/dist/ web/wp-content/themes/stevector-sage/dist/
+          command: cp -r /tmp/web/wp-content/themes/stevector-sage/dist web/wp-content/themes/stevector-sage/
       - restore_cache:
           keys:
           - composer
