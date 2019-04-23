@@ -76,7 +76,6 @@ jobs:
           - bash_env.txt
 
 
-
     # This job puts a fair bit of complexity in this yml config rather than hiding it
     # In scripts called from the job. That decision is made so that in training sessions
     # done by Pantheon, this job is usable with only with copying/pasting changes to this
