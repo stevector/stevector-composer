@@ -8,7 +8,6 @@ defaults: &defaults
     BUILD_TOOLS_VERSION: dev-master
     TERM: dumb
 
-
 commands:
   setbashenv:
     description: "Copy the bash_env from the first job so that TERMINUS_ENV persists."
@@ -19,10 +18,8 @@ commands:
     - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
     - run: source $BASH_ENV
 
-
 version: 2
 jobs:
-
     npmbuild:
       docker:
         - image: node:10.15.3
@@ -89,7 +86,6 @@ jobs:
             - image: quay.io/stevector/ci-lighthouse:master
         working_directory: ~/example_wordpress_composer
         steps:
-            - checkout
             - setbashenv
             - run:
                 name: install lighthouse-ci
@@ -127,7 +123,6 @@ jobs:
           path: /tmp/artifacts
           destination: artifact
       - run: ./backstop/report-backstop.sh
-
 
 
 workflows:
