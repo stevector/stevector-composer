@@ -89,6 +89,7 @@ jobs:
             - run:
                 name: install lighthouse-ci
                 command: |
+                  mkdir /tmp/artifacts/
                   cd .circleci
                   git clone https://github.com/stevector/lighthouse-ci
                   cd lighthouse-ci/frontend
