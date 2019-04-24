@@ -23,7 +23,6 @@ report_url=${CIRCLE_ARTIFACTS_URL}/backstop_data/html_report/index.html
 report_link="[![Visual report]($diff_image_url)]($report_url)"
 comment="### Visual regression report:"
 
-
 ls -al /tmp/artifacts
 
 {
