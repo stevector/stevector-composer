@@ -97,6 +97,3 @@ workflows:
       - backstop:
           requires:
             - build
-      - lighthouse:
-          requires:
-            - build
