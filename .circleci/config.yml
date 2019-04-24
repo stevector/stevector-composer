@@ -27,7 +27,6 @@ jobs:
         - checkout
         - run: cd web/wp-content/themes/stevector-sage && npm ci
         - run: cd web/wp-content/themes/stevector-sage && npm run build:production
-        - run: git status
 
         - persist_to_workspace:
             # Must be relative path from working_directory
@@ -74,43 +73,6 @@ jobs:
           root: .
           paths:
           - bash_env.txt
-
-
-    # This job puts a fair bit of complexity in this yml config rather than hiding it
-    # In scripts called from the job. That decision is made so that in training sessions
-    # done by Pantheon, this job is usable with only with copying/pasting changes to this
-    # config.yml file.
-    lighthouse:
-        docker:
-            - image: quay.io/stevector/ci-lighthouse:master
-        working_directory: ~/example_wordpress_composer
-        steps:
-            - setbashenv
-            - run:
-                name: install lighthouse-ci
-                command: |
-                  mkdir /tmp/artifacts/
-                  cd .circleci
-                  git clone https://github.com/stevector/lighthouse-ci
-                  cd lighthouse-ci/frontend
-                  yarn install
-                  cp no_pwa.js /tmp/artifacts/
-            - run:
-                name: lighthouse
-                command: |
-                  # curl the homepage to prime varnish cache.
-                  curl https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
-                  sleep 1
-                  cd /tmp/artifacts
-                  lighthouse --chrome-flags="--headless --disable-gpu --no-sandbox" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
-            - run:
-                name: report results
-                command: |
-                  cd .circleci/lighthouse-ci/frontend
-                  node pass_fail_pr.js --resultspath=$(find /tmp/artifacts/ -type f -name "*report.json" | head -n 1) --reporturl=${CIRCLE_ARTIFACTS_URL}/$(find /tmp/artifacts/ -type f -name "*report.html"  -exec basename {} \;  | head -n 1)
-            - store_artifacts:
-                path: /tmp/artifacts
-                destination: artifacts
 
     backstop:
       docker:
