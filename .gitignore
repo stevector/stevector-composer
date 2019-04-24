@@ -112,3 +112,6 @@ Thumbs.db
 
 # Local environment variables file
 /.env
+
+# Build artifact of theme webpack process
+/web/wp-content/themes/stevector-sage/dist
