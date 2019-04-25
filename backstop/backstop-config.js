@@ -1,8 +1,8 @@
 'use strict';
 
 // Use live site for comparison base:
-const BackstopReferenceBaseUrl = process.env.PANTHEON_DEV_SITE_URL;
-const BackstopTestUrl = process.env.PANTHEON_SITE_URL;
+const BackstopReferenceBaseUrl = "https://dev-stevector-composer.pantheonsite.io";
+const BackstopTestUrl = process.env.MULTIDEV_SITE_URL;
 
 const simple_scenarios_paths = [
     // @todo, get at least one path for each node type
