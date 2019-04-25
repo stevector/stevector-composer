@@ -17,13 +17,10 @@ else
   EXITCODE=1
 fi
 
-
 diff_image_url=${CIRCLE_ARTIFACTS_URL}/${IMAGE_TO_LINK}
 report_url=${CIRCLE_ARTIFACTS_URL}/backstop_data/html_report/index.html
 report_link="[![Visual report]($diff_image_url)]($report_url)"
 comment="### Visual regression report:"
-
-ls -al /tmp/artifacts
 
 {
   curl -d '{ "body": "'"$comment\\n\\n$report_link"'" }' -X POST https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
