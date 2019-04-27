@@ -35,7 +35,6 @@ jobs:
             root: .
             paths:
               - web/wp-content/themes/stevector-sage/dist
-    # @todo: common initialization, maybe
     build:
       <<: *defaults
       steps:
@@ -47,12 +46,12 @@ jobs:
       - restore_cache:
           keys:
           - composer
-      - run: composer -n build-assets
+      ##################################################- run: composer -n build-assets
       - save_cache:
           key: composer
           paths:
           - $HOME/.composer/cache
-      - run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+      ##################################################- run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
 
       - run:
           name: Delete old Multidevs and other prepare steps
