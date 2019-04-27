@@ -78,8 +78,6 @@ jobs:
       - setbashenv
       - run: backstop reference --config=backstop/backstop-config.js
       - run: backstop test --config=backstop/backstop-config.js || echo "backstop failed but this message suppresses a failure of the entire script. The reporting script will detect the fail"
-  #    - run: mkdir -p '/tmp/artifacts'
-  #    - run: mv backstop_data /tmp/artifacts/backstop_data
 
       - store_artifacts:
           path: backstop_data
