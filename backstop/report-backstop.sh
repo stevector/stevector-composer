@@ -3,7 +3,7 @@
 CIRCLE_ARTIFACTS_URL=${CIRCLE_BUILD_URL}/artifacts/$CIRCLE_NODE_INDEX/artifact
 cd '/tmp/artifacts'
 
-IMAGE=$(find * -type f -name "*.png" | head -n 1)
+IMAGE=$(find * -type f -name "*desktop.png" | head -n 1)
 REPORT_URL=${CIRCLE_ARTIFACTS_URL}/backstop_data/html_report/index.html
 BODY="### Visual regression report:\\n\\n[![Visual report](${CIRCLE_ARTIFACTS_URL}/${IMAGE})]($REPORT_URL)"
 echo $BODY
