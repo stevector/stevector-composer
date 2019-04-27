@@ -15,7 +15,7 @@ commands:
     - checkout
     - attach_workspace:
         at: /tmp/workspace
-    - run: source /tmp/workspace/bash_env.txt
+    - run: - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
   runbackstop:
     description: ""
     steps:
