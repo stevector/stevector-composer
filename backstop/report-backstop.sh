@@ -9,6 +9,6 @@ BODY="### Visual regression report:\\n\\n[![Visual report](${CIRCLE_ARTIFACTS_UR
 echo $BODY
 
 {
-  GITHUB_URL = https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
-  curl -d '{ "body": "'${BODY}'" }' -X POST $GITHUB_URL
+  GITHUB_URL=https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/commits/$CIRCLE_SHA1/comments?access_token=$GITHUB_TOKEN
+  curl -d '{ "body": "'"$BODY"'" }' -X POST $GITHUB_URL
 } &> /dev/null
