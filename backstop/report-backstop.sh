@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CIRCLE_ARTIFACTS_URL=${CIRCLE_BUILD_URL}/artifacts/$CIRCLE_NODE_INDEX
+CIRCLE_ARTIFACTS_URL=${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/root/project/backstop_data
 cd 'backstop_data' || exit 1
 
 IMAGE=$(find -- * -type f -name "*desktop.png" | head -n 1)
