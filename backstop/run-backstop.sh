@@ -2,7 +2,13 @@
 
 set -ex
 
+ARTIFACTS_FULL_DIR='/tmp/artifacts'
+
+
+
 backstop reference --config=backstop-config.js
+
+
 backstop test --config=backstop-config.js || echo "backstop failed but this message suppresses a failure of the entire script. The reporting script will detect the fail"
 
 mkdir -p $ARTIFACTS_FULL_DIR
