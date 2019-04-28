@@ -16,10 +16,6 @@ commands:
     - attach_workspace:
         at: /tmp/workspace
     - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
-  runbackstop:
-    description: ""
-    steps:
-    - echo "hello world"
 
 version: 2.1
 jobs:
