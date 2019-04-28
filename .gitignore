@@ -115,3 +115,6 @@ Thumbs.db
 
 # Build artifact of theme webpack process
 /web/wp-content/themes/stevector-sage/dist
+
+# Backstop Visual Regresion Reports
+/backstop_data
