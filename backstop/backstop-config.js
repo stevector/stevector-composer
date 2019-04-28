@@ -5,9 +5,6 @@ const BackstopReferenceBaseUrl = "https://dev-stevector-composer.pantheonsite.io
 const BackstopTestUrl = process.env.MULTIDEV_SITE_URL;
 
 const simple_scenarios_paths = [
-    // @todo, get at least one path for each node type
-    // and any other important pages.
-
    // "2013/08/fixing-typos-with-jekyll-and-github/",
     "/2013/06/plugin-haikus-drupalcon-portland-presentation/",
     // "2013/06/another-jekyll-blog/",
@@ -65,7 +62,6 @@ const config = {
     // "asyncCaptureLimit": 1
 };
 
-
 const simple_scenarios = simple_scenarios_paths.map(function(path) {
 
     return {
@@ -77,5 +73,4 @@ const simple_scenarios = simple_scenarios_paths.map(function(path) {
 });
 
 config.scenarios = config.scenarios.concat(simple_scenarios);
-
 module.exports = config;
