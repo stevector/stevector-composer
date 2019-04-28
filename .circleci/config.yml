@@ -46,24 +46,23 @@ jobs:
       - restore_cache:
           keys:
           - composer
-      ##################################################- run: composer -n build-assets
+      - run: composer -n build-assets
       - save_cache:
           key: composer
           paths:
           - $HOME/.composer/cache
-      ##################################################- run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+      - run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
 
       - run:
           name: Delete old Multidevs and other prepare steps
-          command: echo hi # terminus -n build:env:delete:ci "$TERMINUS_SITE" --keep=2 --yes      #./vendor/pantheon-systems/docker-build-tools-ci/scripts/from-example-drops-8-composer/ci-scripts/01-prepare
+          command: terminus -n build:env:delete:ci "$TERMINUS_SITE" --keep=2 --yes
 
       - run:
           name: deploy
           command: |
-            echo hi
             # Create a new multidev site to test on
-            # terminus -n env:wake "$TERMINUS_SITE.dev"
-            # terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content
+            terminus -n env:wake "$TERMINUS_SITE.dev"
+            terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content
 
       - run: cp $BASH_ENV bash_env.txt
       - persist_to_workspace:
