@@ -53,11 +53,9 @@ jobs:
       - run: /build-tools-ci/scripts/set-environment
       - attach_workspace:
           at: .
-
       - restore_cache:
             keys:
-              # when lock file changes, use increasingly general patterns to restore cache
-              - composer-v1-{{ .Branch }}-{{ checksum "web/wp-content/themes/stevector-sage/package-lock.json" }}
+              - composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
               - composer-v1-{{ .Branch }}-
               - composer-v1-
       - run: composer -n build-assets
