@@ -1,6 +1,5 @@
 'use strict';
 
-// Use live site for comparison base:
 const BackstopReferenceBaseUrl = "https://dev-stevector-composer.pantheonsite.io";
 const BackstopTestUrl = process.env.MULTIDEV_SITE_URL;
 
