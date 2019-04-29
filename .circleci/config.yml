@@ -1,233 +1,114 @@
-# https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
 defaults: &defaults
   docker:
-    - image: drupaldocker/php:7.1-cli
+  - image: quay.io/pantheon-public/build-tools-ci:4.x
   working_directory: ~/example_wordpress_composer
   environment:
-    #=========================================================================
-    # In addition to the environment variables defined in this file, also
-    # add the following variables in the Circle CI UI.
-    #
-    # See: https://circleci.com/docs/2.0/environment-variables/
-    #
-    # TERMINUS_SITE:  Name of the Pantheon site to run tests on, e.g. my_site
-    # TERMINUS_TOKEN: The Pantheon machine token
-    # GITHUB_TOKEN:   The GitHub personal access token
-    # GIT_EMAIL:      The email address to use when making commits
-    #
-    # TEST_SITE_NAME: The name of the test site to provide when installing.
-    # ADMIN_PASSWORD: The admin password to use when installing.
-    # ADMIN_EMAIL:    The email address to give the admin when installing.
-    #=========================================================================
     TZ: "/usr/share/zoneinfo/America/Los_Angeles"
-
-    # The variables below usually do not need to be modified.
-
-    #======================================================================================================================================
-    # Circle CI 2.0 does not yet expand environment variables so they have to be manually EXPORTed
-    # Once environment variables can be expanded the variables below can be uncommented and the EXPORTs in set-up-globals.sh can be removed
-    # See: https://discuss.circleci.com/t/unclear-how-to-work-with-user-variables-circleci-provided-env-variables/12810/11
-    # See: https://discuss.circleci.com/t/environment-variable-expansion-in-working-directory/11322
-    # See: https://discuss.circleci.com/t/circle-2-0-global-environment-variables/8681
-    #======================================================================================================================================
-    # See set-up-globals.sh for more environment variables
-
-    NOTIFY: 'scripts/github/add-commit-comment {project} {sha} "Created multidev environment [{site}#{env}]({dashboard-url})." {site-url}'
     ADMIN_USERNAME: admin
     BUILD_TOOLS_VERSION: dev-master
     TERM: dumb
 
+commands:
+  setbashenv:
+    description: "Copy the bash_env from the first job so that TERMINUS_ENV persists."
+    steps:
+    - checkout
+    - attach_workspace:
+        at: /tmp/workspace
+    - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
 
-version: 2
+version: 2.1
 jobs:
-    # @todo: common initialization, maybe
+    npmbuild:
+      docker:
+        - image: node:10.15.3
+      steps:
+        - checkout
+        - restore_cache:
+            keys:
+              # when lock file changes, use increasingly general patterns to restore cache
+              - node-v1-{{ .Branch }}-{{ checksum "web/wp-content/themes/stevector-sage/package-lock.json" }}
+              - node-v1-{{ .Branch }}-
+              - node-v1-
+        - run: cd web/wp-content/themes/stevector-sage && npm ci
+        - save_cache:
+            paths:
+              - /root/.npm
+            key: node-v1-{{ .Branch }}-{{ checksum "web/wp-content/themes/stevector-sage/package-lock.json" }}
+
+        - run: cd web/wp-content/themes/stevector-sage && npm run build:production
+
+        - persist_to_workspace:
+            root: .
+            paths:
+              - web/wp-content/themes/stevector-sage/dist
     build:
-        <<: *defaults
-        steps:
-            - checkout
+      <<: *defaults
+      steps:
+      - checkout
+      - run: /build-tools-ci/scripts/set-environment
+      - attach_workspace:
+          at: .
+      - restore_cache:
+            keys:
+              - composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
+              - composer-v1-{{ .Branch }}-
+              - composer-v1-
+      - run: composer -n build-assets
+      - save_cache:
+          key: composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
+          paths:
+          - $HOME/.composer/cache
+      - run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
 
-            - restore_cache:
-                keys:
-                    - composer-cache
-                    - terminus-install
+      - run:
+          name: Delete old Multidevs and other prepare steps
+          command: terminus -n build:env:delete:ci "$TERMINUS_SITE" --keep=2 --yes
 
-            - run:
-                name: dependencies
-                command: ./.circleci/set-up-globals.sh
+      - run:
+          name: deploy
+          command: |
+            # Create a new multidev site to test on
+            terminus -n env:wake "$TERMINUS_SITE.dev"
+            terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content
 
-            - run:
-                name: install dev dependencies
-                command: composer install --no-ansi --no-interaction --optimize-autoloader --no-progress
-
-            - save_cache:
-                key: composer-cache
-                paths:
-                    - $HOME/.composer/cache
-
-            - save_cache:
-                key: terminus-install
-                paths:
-                    - $HOME/.terminus
-                    - $HOME/terminus
-
-            - persist_to_workspace:
-                # Must be relative path from working_directory
-                root: .
-                # Must be relative path from root
-                paths:
-                    - vendor
-
-    code_sniff_unit_test:
-        <<: *defaults
-        steps:
-            - checkout
-
-            - attach_workspace:
-                # Must be absolute path or relative path from working_directory
-                at: /tmp
-
-            - run:
-                name: copy vendor/web
-                command: cp -r /tmp/vendor .
-
-            - run:
-                name: check for WordPress coding standards
-                command: composer -n code-sniff
-
-            - run:
-                name: run unit tests
-                command: composer -n unit-test
-
-    build_and_deploy:
-        <<: *defaults
-        steps:
-            - checkout
-
-            - restore_cache:
-                keys:
-                    - composer-cache
-                    - terminus-install
-
-            - run:
-                name: dependencies
-                command: ./.circleci/set-up-globals.sh
-
-            - run:
-                name: build assets
-                command: composer -n build-assets
-
-            - run:
-                name: deploy to Pantheon
-                command: ./.circleci/deploy-to-pantheon.sh
-
-    behat_test:
-        <<: *defaults
-        steps:
-            - checkout
-
-            - attach_workspace:
-                # Must be absolute path or relative path from working_directory
-                at: /tmp
-
-            - restore_cache:
-                keys:
-                    - terminus-install
-
-            - run:
-                name: copy vendor
-                command: cp -r /tmp/vendor .
-
-            - run:
-                name: dependencies
-                command: ./.circleci/set-up-globals.sh
-
-            - run:
-                name: run Behat tests
-                command: ./.circleci/behat-test.sh
-
-    # This job puts a fair bit of complexity in this yml config rather than hiding it
-    # In scripts called from the job. That decision is made so that in training sessions
-    # done by Pantheon, this job is usable with only with copying/pasting changes to this
-    # config.yml file.
-    lighthouse:
-        docker:
-            - image: quay.io/stevector/ci-lighthouse:master
-        working_directory: ~/example_wordpress_composer
-        steps:
-            - checkout
-            - run:
-                name: dependencies
-                # Set TERMINUS_ENV and related environment variables.
-                # https://github.com/stevector/docker-build-tools-ci/blob/master/dockerfiles/pantheon-ci-testing/scripts/set-up-global-vars.sh
-                command: /build-tools-ci/scripts/set-up-global-vars.sh
-            - run:
-                name: install lighthouse-ci
-                command: |
-                  cd .circleci
-                  git clone https://github.com/stevector/lighthouse-ci
-                  cd lighthouse-ci/frontend
-                  yarn install
-                  cp no_pwa.js /tmp/artifacts/
-            - run:
-                name: lighthouse
-                command: |
-                  # curl the homepage to prime varnish cache.
-                  curl https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io
-                  sleep 1
-                  cd /tmp/artifacts
-                  lighthouse --chrome-flags="--headless --disable-gpu --no-sandbox" "https://${TERMINUS_ENV}-${TERMINUS_SITE}.pantheonsite.io" --save-artifacts --save-assets --config-path=no_pwa.js --output=json --output=html
-            - run:
-                name: report results
-                command: |
-                  cd .circleci/lighthouse-ci/frontend
-                  node pass_fail_pr.js --resultspath=$(find /tmp/artifacts/ -type f -name "*report.json" | head -n 1) --reporturl=${CIRCLE_ARTIFACTS_URL}/$(find /tmp/artifacts/ -type f -name "*report.html"  -exec basename {} \;  | head -n 1)
-            - store_artifacts:
-                path: /tmp/artifacts
-                destination: artifacts
+      - run: cp $BASH_ENV bash_env.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+          - bash_env.txt
 
     backstop:
-        docker:
-            - image: quay.io/stevector/ci-backstop:master
-        working_directory: ~/example_wordpress_composer
-        steps:
-            - checkout
-            - run:
-                name: dependencies
-                # Set TERMINUS_ENV and related environment variables.
-                # https://github.com/stevector/docker-build-tools-ci/blob/master/dockerfiles/pantheon-ci-testing/scripts/set-up-global-vars.sh
-                command: /build-tools-ci/scripts/set-up-global-vars.sh
-            - run:
-                name: run-backstop
-                command: cd backstop && /build-tools-ci/scripts/backstop/run-backstop.sh
-            - store_artifacts:
-                path: /tmp/artifacts
-                destination: artifacts
+      docker:
+      - image: backstopjs/backstopjs:3.9.5
+      steps:
+      - setbashenv
+      - run: backstop reference --config=backstop/backstop-config.js
+      - run: backstop test --config=backstop/backstop-config.js || echo "backstop failed but this message suppresses a failure of the entire script. The reporting script will detect the fail"
+
+      - store_artifacts:
+          path: backstop_data
+
+      - run:
+          name: Report
+          command: |
+            CIRCLE_ARTIFACTS_URL=${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/root/project
+            IMAGE=$(find -- backstop_data/bitmaps_test -type f -name "*.png" | head -n 1)
+            REPORT_URL=${CIRCLE_ARTIFACTS_URL}/backstop_data/html_report/index.html
+            BODY="### Visual regression report:\\n\\n[![Visual report](${CIRCLE_ARTIFACTS_URL}/${IMAGE})]($REPORT_URL)"
+            {
+              GITHUB_URL="https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/commits/${CIRCLE_SHA1}/comments?access_token=${GITHUB_TOKEN}"
+              curl -d '{ "body": "'"${BODY}"'" }' -X POST "${GITHUB_URL}"
+            } &> /dev/null
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      # Install dev dependencies
-      - build
-      - build_and_deploy
+      - npmbuild
+      - build:
+          requires:
+            - npmbuild
       - backstop:
           requires:
             - build
-            - build_and_deploy
-      - lighthouse:
-          requires:
-            - build
-            - build_and_deploy
-            # Run Behat tests after deploy so they can be done on Pantheon
-      # Code sniff and unit text first
-
-     # todo, bring back this job https://github.com/stevector/stevector-composer/issues/2
-     # - code_sniff_unit_test:
-      #      requires:
-       #         - build
-
-      # Run Behat tests after deploy so they can be done on Pantheon
-#      - behat_test:
-#            requires:
-#                - build
-#                - build_and_deploy
