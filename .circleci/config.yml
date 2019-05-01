@@ -2,10 +2,14 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - npmbuild
+    #  - npmbuild
+      - inline_example/npmbuild:
+          package_lock_location: "web/wp-content/themes/stevector-sage"
+          path_to_persist: "web/wp-content/themes/stevector-sage/dist"
+          build_command: "npm run build:production"
       - playground/build:
           requires:
-            - npmbuild
+            - inline_example/npmbuild
       - playground/backstop:
           requires:
             - playground/build
@@ -27,6 +31,27 @@ jobs:
 orbs:
   playground: fauxalgore/playground@dev:second
   inline_example:
+    jobs:
+
+      npmbuild:
+        docker:
+          - image: node:10.15.3
+
+        parameters:
+          path_to_persist:
+            type: string
+          package_lock_location:
+            type: string
+          build_command:
+            type: string
+        steps:
+          - checkout
+          - npmci_and_cache:
+              package_lock_location: <<parameters.package_lock_location>>
+              path_to_persist: <<parameters.path_to_persist>>
+              build_command: <<parameters.build_command>>
+
+
     commands:
       npmci_and_cache:
         parameters:
