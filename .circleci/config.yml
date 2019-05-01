@@ -8,7 +8,7 @@ workflows:
             - npmbuild
       - fauxalgore/backstop:
           requires:
-            - build
+            - buil
 
 
 version: 2.1
