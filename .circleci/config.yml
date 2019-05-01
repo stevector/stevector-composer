@@ -1,7 +1,7 @@
 version: 2.1
 workflows:
   version: 2
-  build_and_test:
+  build_push_test:
     jobs:
       - playground/npmbuild_and_persist:
           package_lock_location: "web/wp-content/themes/stevector-sage"
