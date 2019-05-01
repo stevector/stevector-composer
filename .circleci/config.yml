@@ -45,12 +45,12 @@ orbs:
                 - node-v1-{{ .Branch }}-
                 - node-v1-
           - run: cd <<parameters.package_lock_location>> && npm ci
-        - save_cache:
-            paths:
-              - /root/.npm
-            key: node-v1-{{ .Branch }}-{{ checksum "<<parameters.package_lock_location>>/package-lock.json" }}
-        - run: cd <<parameters.package_lock_location>> && <<parameters.build_command>>
-        - persist_to_workspace:
-            root: .
-            paths:
-              - <<parameters.path_to_persist>>
+          - save_cache:
+              paths:
+                - /root/.npm
+              key: node-v1-{{ .Branch }}-{{ checksum "<<parameters.package_lock_location>>/package-lock.json" }}
+          - run: cd <<parameters.package_lock_location>> && <<parameters.build_command>>
+          - persist_to_workspace:
+              root: .
+              paths:
+                - <<parameters.path_to_persist>>
