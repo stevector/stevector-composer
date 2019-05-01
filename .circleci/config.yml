@@ -18,13 +18,16 @@ jobs:
         - image: node:10.15.3
       steps:
         - checkout
-        - restore_cache:
-            keys:
-              # when lock file changes, use increasingly general patterns to restore cache
-              - node-v1-{{ .Branch }}-{{ checksum "web/wp-content/themes/stevector-sage/package-lock.json" }}
-              - node-v1-{{ .Branch }}-
-              - node-v1-
-        - run: cd web/wp-content/themes/stevector-sage && npm ci
+        - inline_example/npmci_and_cache:
+            package_lock_location: "web/wp-content/themes/stevector-sage"
+
+        # - restore_cache:
+        #     keys:
+        #       # when lock file changes, use increasingly general patterns to restore cache
+        #       - node-v1-{{ .Branch }}-{{ checksum "web/wp-content/themes/stevector-sage/package-lock.json" }}
+        #       - node-v1-{{ .Branch }}-
+        #       - node-v1-
+        # - run: cd web/wp-content/themes/stevector-sage && npm ci
         - save_cache:
             paths:
               - /root/.npm
@@ -40,3 +43,18 @@ jobs:
 
 orbs:
   playground: fauxalgore/playground@dev:second
+  inline_example:
+    commands:
+      npmci_and_cache:
+        parameters:
+          package_lock_location:
+            type: string
+        steps:
+          - run: echo "hello <<parameters.package_lock_location>>, from the inline command"
+          - restore_cache:
+              keys:
+                # when lock file changes, use increasingly general patterns to restore cache
+                - node-v1-{{ .Branch }}-{{ checksum "<<parameters.package_lock_location>>/package-lock.json" }}
+                - node-v1-{{ .Branch }}-
+                - node-v1-
+          - run: cd <<parameters.package_lock_location>> && npm ci
