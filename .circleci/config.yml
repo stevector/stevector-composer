@@ -1,77 +1,17 @@
+version: 2.1
 workflows:
   version: 2
   build_and_test:
     jobs:
-    #  - npmbuild
-      - inline_example/npmbuild_and_persist:
+      - playground/npmbuild_and_persist:
           package_lock_location: "web/wp-content/themes/stevector-sage"
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
           build_command: "npm run build:production"
       - playground/build:
           requires:
-            - inline_example/npmbuild_and_persist
+            - playground/npmbuild_and_persist
       - playground/backstop:
           requires:
             - playground/build
-
-
-version: 2.1
-jobs:
-    npmbuild:
-      docker:
-        - image: node:10.15.3
-      steps:
-        - checkout
-        - inline_example/npmci_and_cache:
-            package_lock_location: "web/wp-content/themes/stevector-sage"
-            path_to_persist: "web/wp-content/themes/stevector-sage/dist"
-            build_command: "npm run build:production"
-
-
 orbs:
-  playground: fauxalgore/playground@dev:second
-  inline_example:
-    jobs:
-
-      npmbuild_and_persist:
-        docker:
-          - image: node:10.15.3
-
-        parameters:
-          path_to_persist:
-            type: string
-          package_lock_location:
-            type: string
-          build_command:
-            type: string
-        steps:
-          - checkout
-          - npmci_and_cache:
-              package_lock_location: <<parameters.package_lock_location>>
-              build_command: <<parameters.build_command>>
-          - persist_to_workspace:
-              root: .
-              paths:
-                - <<parameters.path_to_persist>>
-
-    commands:
-      npmci_and_cache:
-        parameters:
-          package_lock_location:
-            type: string
-          build_command:
-            type: string
-        steps:
-          - run: echo "hello <<parameters.package_lock_location>>, from the inline command"
-          - restore_cache:
-              keys:
-                # when lock file changes, use increasingly general patterns to restore cache
-                - node-v1-{{ .Branch }}-{{ checksum "<<parameters.package_lock_location>>/package-lock.json" }}
-                - node-v1-{{ .Branch }}-
-                - node-v1-
-          - run: cd <<parameters.package_lock_location>> && npm ci
-          - save_cache:
-              paths:
-                - /root/.npm
-              key: node-v1-{{ .Branch }}-{{ checksum "<<parameters.package_lock_location>>/package-lock.json" }}
-          - run: cd <<parameters.package_lock_location>> && <<parameters.build_command>>
+  playground: fauxalgore/playground@dev:third
