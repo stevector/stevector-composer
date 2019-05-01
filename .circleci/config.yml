@@ -3,31 +3,13 @@ workflows:
   build_and_test:
     jobs:
       - npmbuild
-      - build:
+      - fauxalgore/build:
           requires:
             - npmbuild
       - fauxalgore/backstop:
           requires:
             - build
 
-defaults: &defaults
-  docker:
-  - image: quay.io/pantheon-public/build-tools-ci:4.x
-  working_directory: ~/example_wordpress_composer
-  environment:
-    TZ: "/usr/share/zoneinfo/America/Los_Angeles"
-    ADMIN_USERNAME: admin
-    BUILD_TOOLS_VERSION: dev-master
-    TERM: dumb
-
-commands:
-  setbashenv:
-    description: "Copy the bash_env from the first job so that TERMINUS_ENV persists."
-    steps:
-    - checkout
-    - attach_workspace:
-        at: /tmp/workspace
-    - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
 
 version: 2.1
 jobs:
@@ -54,42 +36,7 @@ jobs:
             root: .
             paths:
               - web/wp-content/themes/stevector-sage/dist
-    build:
-      <<: *defaults
-      steps:
-      - checkout
-      - run: /build-tools-ci/scripts/set-environment
-      - attach_workspace:
-          at: .
-      - restore_cache:
-            keys:
-              - composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
-              - composer-v1-{{ .Branch }}-
-              - composer-v1-
-      - run: composer -n build-assets
-      - save_cache:
-          key: composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
-          paths:
-          - $HOME/.composer/cache
-      - run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
 
-      - run:
-          name: Delete old Multidevs and other prepare steps
-          command: terminus -n build:env:delete:ci "$TERMINUS_SITE" --keep=2 --yes
-
-      - run:
-          name: deploy
-          command: |
-            # Create a new multidev site to test on
-            terminus -n env:wake "$TERMINUS_SITE.dev"
-            terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content
-
-      - run: cp $BASH_ENV bash_env.txt
-      - persist_to_workspace:
-          root: .
-          paths:
-          - bash_env.txt
 
 orbs:
   fauxalgore: fauxalgore/playground@dev:first
-  cypress: cypress-io/cypress@1
