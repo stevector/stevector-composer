@@ -71,6 +71,7 @@ jobs:
           key: composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
           paths:
           - $HOME/.composer/cache
+
       - run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
 
       - run:
