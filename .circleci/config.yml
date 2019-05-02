@@ -13,5 +13,8 @@ workflows:
       - playground/backstop:
           requires:
             - playground/build
+      - playground/merge:
+          requires:
+             - playground/backstop
 orbs:
   playground: fauxalgore/playground@dev:third
