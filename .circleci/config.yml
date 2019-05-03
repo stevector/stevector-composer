@@ -19,7 +19,7 @@ workflows:
             - playground/npmbuild_and_persist
       - playground/backstop:
           requires:
-            - playground/build
+            - playground/push
       - playground/merge:
           requires:
              - playground/backstop
