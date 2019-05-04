@@ -62,7 +62,6 @@ const config = {
 };
 
 const simple_scenarios = simple_scenarios_paths.map(function(path) {
-
     return {
         "url": BackstopTestUrl + path,
         "referenceUrl":BackstopReferenceBaseUrl +  path,
