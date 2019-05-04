@@ -11,6 +11,8 @@ workflows:
           pre-steps:
             - checkout
             - playground/composer_install_no_dev
+            - cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
+
             - attach_workspace:
                 at: .
           requires:
