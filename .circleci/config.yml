@@ -7,9 +7,6 @@ workflows:
           package_lock_location: "web/wp-content/themes/stevector-sage"
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
           build_command: "npm run build:production"
-
-
-
       - playground/push:
           pre-steps:
             - playground/composer_install_no_dev
@@ -24,4 +21,4 @@ workflows:
           requires:
              - playground/backstop
 orbs:
-  playground: fauxalgore/playground@dev:eighth
+  playground: fauxalgore/playground@dev:12
