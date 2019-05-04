@@ -67,7 +67,8 @@ const simple_scenarios = simple_scenarios_paths.map(function(path) {
         "url": BackstopTestUrl + path,
         "referenceUrl":BackstopReferenceBaseUrl +  path,
         "label": path,
-        "delay": 500
+        "delay": 500,
+        "removeSelectors": [".wp-block-embed-youtube"]
     }
 });
 
