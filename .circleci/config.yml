@@ -9,6 +9,7 @@ workflows:
           build_command: "npm run build:production"
       - playground/push:
           pre-steps:
+            - checkout
             - playground/composer_install_no_dev
             - attach_workspace:
                 at: .
