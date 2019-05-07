@@ -61,8 +61,6 @@ orbs:
               fi
 
               git -C $PANTHEON_REPO_DIR fetch pantheon
-
-
               REMOTE_REF=$(git -C $PANTHEON_REPO_DIR ls-remote pantheon | grep "refs/heads/$TERMINUS_ENV$") || echo "hmm, assigning an empty var returns an error."
 
               if [ -n "$REMOTE_REF" ]; then
