@@ -54,8 +54,8 @@ jobs:
               - composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
               - composer-v1-{{ .Branch }}-
               - composer-v1-
-      - run: composer -n build-assets
       - run: cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
+      - run: composer -n build-assets
       - save_cache:
           key: composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
           paths:
