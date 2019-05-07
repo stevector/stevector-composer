@@ -98,4 +98,4 @@ orbs:
         - persist_to_workspace:
             root: .
             paths:
-    - bash_env.txt
+             - bash_env.txt
