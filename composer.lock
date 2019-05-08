@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68a99563b21e54a53d516b011f337846",
+    "content-hash": "e67c9234935ad81b718407842acfea36",
     "packages": [
         {
             "name": "composer/installers",
@@ -418,24 +418,23 @@
         },
         {
             "name": "wpackagist-plugin/redirection",
-            "version": "dev-trunk",
+            "version": "3.6.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/redirection/",
-                "reference": "trunk"
+                "reference": "tags/3.6.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redirection.zip?timestamp=1503739821",
-                "reference": "trunk",
+                "url": "https://downloads.wordpress.org/plugin/redirection.3.6.3.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/redirection/",
-            "time": "2017-08-26T10:30:21+00:00"
+            "homepage": "https://wordpress.org/plugins/redirection/"
         },
         {
             "name": "wpackagist-plugin/wp-cfm",
@@ -4881,7 +4880,6 @@
     "stability-flags": {
         "pantheon-systems/quicksilver-pushback": 20,
         "wpackagist-plugin/debug-bar": 20,
-        "wpackagist-plugin/redirection": 20,
         "wpackagist-plugin/wp-cfm": 20,
         "roave/security-advisories": 20,
         "wp-coding-standards/wpcs": 20

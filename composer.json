@@ -24,7 +24,7 @@
         "vlucas/phpdotenv": "^2.4.0",
         "wpackagist-plugin/debug-bar": "dev-trunk",
         "wpackagist-plugin/pantheon-advanced-page-cache": "^0.1.4",
-        "wpackagist-plugin/redirection": "dev-trunk",
+        "wpackagist-plugin/redirection": "3.6.3",
         "wpackagist-plugin/wp-cfm": "dev-trunk",
         "wpackagist-theme/twentyseventeen": "^1.1"
     },
