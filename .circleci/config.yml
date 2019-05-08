@@ -1,114 +1,30 @@
-defaults: &defaults
-  docker:
-  - image: quay.io/pantheon-public/build-tools-ci:4.x
-  working_directory: ~/example_wordpress_composer
-  environment:
-    TZ: "/usr/share/zoneinfo/America/Los_Angeles"
-    ADMIN_USERNAME: admin
-    BUILD_TOOLS_VERSION: dev-master
-    TERM: dumb
-
-commands:
-  setbashenv:
-    description: "Copy the bash_env from the first job so that TERMINUS_ENV persists."
-    steps:
-    - checkout
-    - attach_workspace:
-        at: /tmp/workspace
-    - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
-
 version: 2.1
-jobs:
-    npmbuild:
-      docker:
-        - image: node:10.15.3
-      steps:
-        - checkout
-        - restore_cache:
-            keys:
-              # when lock file changes, use increasingly general patterns to restore cache
-              - node-v1-{{ .Branch }}-{{ checksum "web/wp-content/themes/stevector-sage/package-lock.json" }}
-              - node-v1-{{ .Branch }}-
-              - node-v1-
-        - run: cd web/wp-content/themes/stevector-sage && npm ci
-        - save_cache:
-            paths:
-              - /root/.npm
-            key: node-v1-{{ .Branch }}-{{ checksum "web/wp-content/themes/stevector-sage/package-lock.json" }}
-
-        - run: cd web/wp-content/themes/stevector-sage && npm run build:production
-
-        - persist_to_workspace:
-            root: .
-            paths:
-              - web/wp-content/themes/stevector-sage/dist
-    build:
-      <<: *defaults
-      steps:
-      - checkout
-      - run: /build-tools-ci/scripts/set-environment
-      - attach_workspace:
-          at: .
-      - restore_cache:
-            keys:
-              - composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
-              - composer-v1-{{ .Branch }}-
-              - composer-v1-
-      - run: composer -n build-assets
-      - save_cache:
-          key: composer-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
-          paths:
-          - $HOME/.composer/cache
-      - run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
-
-      - run:
-          name: Delete old Multidevs and other prepare steps
-          command: terminus -n build:env:delete:ci "$TERMINUS_SITE" --keep=2 --yes
-
-      - run:
-          name: deploy
-          command: |
-            # Create a new multidev site to test on
-            terminus -n env:wake "$TERMINUS_SITE.dev"
-            terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content
-
-      - run: cp $BASH_ENV bash_env.txt
-      - persist_to_workspace:
-          root: .
-          paths:
-          - bash_env.txt
-
-    backstop:
-      docker:
-      - image: backstopjs/backstopjs:3.9.5
-      steps:
-      - setbashenv
-      - run: backstop reference --config=backstop/backstop-config.js
-      - run: backstop test --config=backstop/backstop-config.js || echo "backstop failed but this message suppresses a failure of the entire script. The reporting script will detect the fail"
-
-      - store_artifacts:
-          path: backstop_data
-
-      - run:
-          name: Report
-          command: |
-            CIRCLE_ARTIFACTS_URL=${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/root/project
-            IMAGE=$(find -- backstop_data/bitmaps_test -type f -name "*.png" | head -n 1)
-            REPORT_URL=${CIRCLE_ARTIFACTS_URL}/backstop_data/html_report/index.html
-            BODY="### Visual regression report:\\n\\n[![Visual report](${CIRCLE_ARTIFACTS_URL}/${IMAGE})]($REPORT_URL)"
-            {
-              GITHUB_URL="https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/commits/${CIRCLE_SHA1}/comments?access_token=${GITHUB_TOKEN}"
-              curl -d '{ "body": "'"${BODY}"'" }' -X POST "${GITHUB_URL}"
-            } &> /dev/null
 
 workflows:
   version: 2
-  build_and_test:
+  build_push_test:
     jobs:
-      - npmbuild
-      - build:
+      # Eventually this job should come from a CircleCI maintained orb.
+      - playground/npmbuild_and_persist:
+          package_lock_location: "web/wp-content/themes/stevector-sage"
+          path_to_persist: "web/wp-content/themes/stevector-sage/dist"
+          build_command: "npm run build:production"
+      - pantheon/push:
+          pre-steps:
+            - checkout
+            - playground/composer_install_no_dev
+            - run: cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
+            - attach_workspace:
+                at: .
+          post-steps:
+            - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
+            - run: echo "testing CI on master branch"
           requires:
-            - npmbuild
-      - backstop:
+            - playground/npmbuild_and_persist
+      - playground/backstop:
           requires:
-            - build
+            - pantheon/push
+
+orbs:
+  playground: fauxalgore/playground@dev:12
+  pantheon: stevector/pantheon@dev:stevector

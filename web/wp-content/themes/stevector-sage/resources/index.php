@@ -1,3 +1,3 @@
 <?php
 
-// this file is deliberately blank
+// This file is deliberately blank.

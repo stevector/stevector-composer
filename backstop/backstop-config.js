@@ -5,7 +5,7 @@ const BackstopTestUrl = process.env.MULTIDEV_SITE_URL;
 
 const simple_scenarios_paths = [
    // "2013/08/fixing-typos-with-jekyll-and-github/",
-    "/2013/06/plugin-haikus-drupalcon-portland-presentation/",
+    //"/2013/06/plugin-haikus-drupalcon-portland-presentation/",
     // "2013/06/another-jekyll-blog/",
     "/2016/09/drupal-7-to-8-migration-diary-part-4-migrating-remote-files-and-swapping-a-service-class/",
     "/2016/06/drupal-7-to-8-migration-diary-part-3-regression-found/",
@@ -62,12 +62,12 @@ const config = {
 };
 
 const simple_scenarios = simple_scenarios_paths.map(function(path) {
-
     return {
         "url": BackstopTestUrl + path,
         "referenceUrl":BackstopReferenceBaseUrl +  path,
         "label": path,
-        "delay": 500
+        "delay": 500,
+        "removeSelectors": [".wp-block-embed-youtube", "iframe"]
     }
 });
 
