@@ -27,7 +27,7 @@ workflows:
             - attach_workspace:
                 at: .
           post-steps:
-            - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status && git log  --decorate
+            - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
           requires:
             - playground/npmbuild_and_persist
       - playground/backstop:
