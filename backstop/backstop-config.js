@@ -1,6 +1,6 @@
 'use strict';
 
-const BackstopReferenceBaseUrl = "https://dev-stevector-composer.pantheonsite.io";
+const BackstopReferenceBaseUrl = "https://www.stevector.com";
 const BackstopTestUrl = process.env.MULTIDEV_SITE_URL;
 
 const simple_scenarios_paths = [
