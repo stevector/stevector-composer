@@ -16,14 +16,10 @@ workflows:
             - playground/composer_install_no_dev
             - run: composer prepare-for-pantheon
             - run: cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
-
             - attach_workspace:
                 at: .
-            - run: cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
           post-steps:
-            - run: cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
             - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
-            - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
             - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
