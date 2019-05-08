@@ -26,6 +26,8 @@ workflows:
             - run: cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
             - attach_workspace:
                 at: .
+          post-steps:
+            - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status && git log  --decorate
           requires:
             - playground/npmbuild_and_persist
       - playground/backstop:
