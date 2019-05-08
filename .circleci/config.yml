@@ -43,17 +43,20 @@ orbs:
         <<: *defaults
         steps:
 
-
-
         - checkout
         - run: echo "TODO check that the orb job has all required variables."
         - run: /build-tools-ci/scripts/set-environment
         - run: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+
+      - restore_cache:
+            keys:
+              - pantheon-repo-{{ .Branch }}
+              - pantheon-repo-
         - run:
             name: pantheon checkout
             command: |
               export PANTHEON_REPO_DIR="/tmp/pantheon_repo_for_$TERMINUS_SITE"
-              if [ ! -d "$PANTHEON_REPO_DIR" ]; then
+              if [ ! -d "$PANTHEON_REPO_DIR/.git" ]; then
                 mkdir $PANTHEON_REPO_DIR
                 git -C $PANTHEON_REPO_DIR init
                 git -C $PANTHEON_REPO_DIR remote add pantheon $(terminus connection:info $TERMINUS_SITE.dev --field=git_url)
@@ -71,6 +74,12 @@ orbs:
                 git -C $PANTHEON_REPO_DIR pull
                 git -C $PANTHEON_REPO_DIR checkout -b $TERMINUS_ENV
               fi
+
+      - save_cache:
+          key: pantheon-repo-{{ .Branch }}
+          paths:
+          - /tmp/pantheon_repo_for_$TERMINUS_SITE
+
         - run:
             name: Delete old Multidevs and other prepare steps
             command: terminus -n build:env:delete:ci "$TERMINUS_SITE" --keep=2 --yes
@@ -81,7 +90,6 @@ orbs:
               export PANTHEON_REPO_DIR="/tmp/pantheon_repo_for_$TERMINUS_SITE"
               rsync -av --exclude='.git'  . $PANTHEON_REPO_DIR  --delete
               git -C $PANTHEON_REPO_DIR status
-
 
         - run:
             name: deploy
