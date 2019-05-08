@@ -1,14 +1,4 @@
 version: 2.1
-defaults: &defaults
-  docker:
-  - image: quay.io/pantheon-public/build-tools-ci:4.x
-  working_directory: ~/sitedir
-  environment:
-    TZ: "/usr/share/zoneinfo/America/Los_Angeles"
-    ADMIN_USERNAME: admin
-    BUILD_TOOLS_VERSION: dev-option-for-no-force
-    TERM: dumb
-
 
 workflows:
   version: 2
