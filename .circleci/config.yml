@@ -19,7 +19,9 @@ workflows:
             - attach_workspace:
                 at: .
           post-steps:
+            - run: cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
             - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
+            - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
             - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
