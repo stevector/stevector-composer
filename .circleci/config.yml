@@ -19,7 +19,7 @@ workflows:
                 at: .
           post-steps:
             - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
-            - run: echo "testing CI on master branch"
+            - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
       - playground/backstop:
