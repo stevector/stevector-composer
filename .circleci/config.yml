@@ -15,9 +15,10 @@ workflows:
             - checkout
             - playground/composer_install_no_dev
             - run: cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
-            - run: cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
+
             - attach_workspace:
                 at: .
+            - run: cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
           post-steps:
             - run: cd web/wp-content/themes/stevector-sage/dist && ls && ls scripts
             - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
