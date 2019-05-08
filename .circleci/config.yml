@@ -14,7 +14,7 @@ workflows:
           pre-steps:
             - checkout
             - playground/composer_install_no_dev
-            - composer prepare-for-pantheon
+            - run: composer prepare-for-pantheon
             - run: cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
             - attach_workspace:
