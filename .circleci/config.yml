@@ -14,6 +14,7 @@ workflows:
             - checkout
             - playground/composer_install_no_dev
             - run: composer prepare-for-pantheon
+            - run: cat .gitignore
             - run: cd web/wp-content/themes/stevector-sage/ && composer install --no-dev --optimize-autoloader --ignore-platform-reqs
             - attach_workspace:
                 at: .
