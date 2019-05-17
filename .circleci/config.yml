@@ -19,7 +19,7 @@ workflows:
                 at: .
             - run: ls web/wp-content/themes/stevector-sage/dist
           post-steps:
-          - run: ls web/wp-content/themes/stevector-sage/dist
+            - run: ls web/wp-content/themes/stevector-sage/dist
             - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
             - run: echo "Testing CI on master branch"
           requires:
