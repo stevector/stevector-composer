@@ -10,7 +10,6 @@ workflows:
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
           build_command: "npm run build:production"
       - pantheon/push:
-          checkout: false
           pre-steps:
             - checkout
             - playground/composer_install_no_dev
