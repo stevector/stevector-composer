@@ -29,4 +29,4 @@ workflows:
 
 orbs:
   playground: fauxalgore/playground@0.0.2
-  pantheon: stevector/pantheon@dev:stevector
+  pantheon: pantheon-systems/pantheon@dev:master
