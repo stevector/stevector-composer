@@ -19,7 +19,7 @@ workflows:
             - attach_workspace:
                 at: .
           post-steps:
-            - run: cd "/tmp/pantheon_repo_for_$TERMINUS_SITE" && git status
+            - run: cd "/tmp/pantheon_repo" && git status
             - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
@@ -29,4 +29,4 @@ workflows:
 
 orbs:
   playground: fauxalgore/playground@0.0.2
-  pantheon: pantheon-systems/pantheon@dev:master
+  pantheon: pantheon-systems/pantheon@dev:yml-tweaks-in-readme-examples
