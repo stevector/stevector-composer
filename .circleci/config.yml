@@ -27,6 +27,8 @@ workflows:
             - pantheon/push
       - approve_dev_env:
           type: approval
+          requires:
+          - pantheon/push
       - deploy_to_test:
           requires:
           - approve_dev_env
