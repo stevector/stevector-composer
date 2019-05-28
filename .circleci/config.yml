@@ -12,7 +12,6 @@ workflows:
             - slack/approval:
               message: "hey, could you sign off on this npm build real quick?"
               mentions: "UJQVBGN9G"
-
       - approve_npm:
           type: approval
           requires:
