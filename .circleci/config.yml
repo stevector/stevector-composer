@@ -3,6 +3,7 @@ workflows:
   version: 2
   build_push_test:
     jobs:
+      - slack/notify
       # Eventually this job should come from a CircleCI maintained orb.
       - playground/npmbuild_and_persist:
           package_lock_location: "web/wp-content/themes/stevector-sage"
@@ -42,6 +43,8 @@ orbs:
   # for Orbs that might become stable elsewhere.
   playground: fauxalgore/playground@0.0.2
   pantheon: pantheon-systems/pantheon@0.0.2
+  slack: circleci/slack@2.5.1
+  
 
 jobs:
   deploy_to_test:
@@ -52,3 +55,7 @@ jobs:
         name: Authenticate with Pantheon's CLI using a machine token
         command: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
     - run: terminus env:deploy $TERMINUS_SITE.test --note="automatic deployment from CI"  --sync-content --cc
+  approval-notification:
+    description: Notify Slack about an awaiting approval job
+    executor: alpine    
+    
