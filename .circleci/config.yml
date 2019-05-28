@@ -25,7 +25,19 @@ workflows:
       - playground/backstop:
           requires:
             - pantheon/push
+      - deploy_to_test:
+          requires:
+          - playground/backstop
+          branches:
+            only: "master"
 
 orbs:
   playground: fauxalgore/playground@0.0.2
   pantheon: pantheon-systems/pantheon@0.0.2
+
+jobs:
+  deploy_to_test:
+    docker:
+    - image: quay.io/pantheon-public/build-tools-ci:5.x
+    steps:
+    - run: terminus env:deploy $TERMINUS_SITE.test --note="automatic deployment from CI"  --sync-content --cc
