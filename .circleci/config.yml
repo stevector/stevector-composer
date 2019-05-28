@@ -8,10 +8,11 @@ workflows:
           package_lock_location: "web/wp-content/themes/stevector-sage"
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
           build_command: "npm run build:production"
-          post-steps:
-            - slack/approval:
-              message: "hey, could you sign off on this npm build real quick?"
-              mentions: "UJQVBGN9G"
+      - slack/approval-notification:
+          message: "hey, could you sign off on this npm build real quick?"
+          mentions: "UJQVBGN9G"
+          requires:
+            - playground/npmbuild_and_persist
       - approve_npm:
           type: approval
           requires:
