@@ -25,10 +25,23 @@ workflows:
       - playground/backstop:
           requires:
             - pantheon/push
+      # @todo, why doesn't this job take the param for author.
+      # or icon_url or icon_emoji for that matter.
+      - slack/approval-notification:
+          message: "hey, could you sign off on this deployment real quick?"
+          mentions: "UJQVBGN9G"
+          requires:
+          - playground/backstop
+          filters:
+            branches:
+              only: "master"
       - approve_dev_env:
           type: approval
           requires:
           - playground/backstop
+          filters:
+            branches:
+              only: "master"
       - deploy_to_test:
           requires:
           - approve_dev_env
@@ -42,6 +55,8 @@ orbs:
   # for Orbs that might become stable elsewhere.
   playground: fauxalgore/playground@0.0.2
   pantheon: pantheon-systems/pantheon@0.0.2
+  # https://circleci.com/orbs/registry/orb/circleci/slack
+  slack: circleci/slack@2.5.1
 
 jobs:
   deploy_to_test:
@@ -52,3 +67,7 @@ jobs:
         name: Authenticate with Pantheon's CLI using a machine token
         command: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
     - run: terminus env:deploy $TERMINUS_SITE.test --note="automatic deployment from CI"  --sync-content --cc
+#  slack_notify:
+#    executor: alpine
+#    steps:
+#      - slack/notify
