@@ -6,7 +6,10 @@ workflows:
       # Eventually this job should come from a CircleCI maintained orb.
       - playground/npmbuild_and_persist:
           pre-steps:
-            - slack/notify
+            - slack/notify:
+                author_name: 'CircleCI status'
+                include_job_number_field: false
+                mentions: "UJQVBGN9G"
           package_lock_location: "web/wp-content/themes/stevector-sage"
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
           build_command: "npm run build:production"
