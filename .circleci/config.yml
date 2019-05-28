@@ -5,19 +5,15 @@ workflows:
     jobs:
       # Eventually this job should come from a CircleCI maintained orb.
       - playground/npmbuild_and_persist:
-          pre-steps:
-            - slack/notify:
-                author_name: 'CircleCI status'
-                include_job_number_field: false
-                mentions: "UJQVBGN9G"
           package_lock_location: "web/wp-content/themes/stevector-sage"
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
           build_command: "npm run build:production"
-#      - slack/approval-notification:
-#          message: "hey, could you sign off on this npm build real quick?"
-#          mentions: "UJQVBGN9G"
-#          requires:
-#          - playground/npmbuild_and_persist
+          post-steps:
+          - slack/notify:
+              author_name: 'CircleCI status'
+              include_job_number_field: false
+              mentions: "UJQVBGN9G"
+
       - approve_npm:
           type: approval
           pre-steps:
