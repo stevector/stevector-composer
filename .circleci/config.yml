@@ -32,6 +32,9 @@ workflows:
           mentions: "UJQVBGN9G"
           requires:
           - playground/backstop
+          filters:
+            branches:
+              only: "master"
       - approve_dev_env:
           type: approval
           requires:
