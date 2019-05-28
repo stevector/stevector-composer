@@ -10,17 +10,12 @@ workflows:
           build_command: "npm run build:production"
           post-steps:
           - slack/notify:
-              author_name: 'CircleCI status'
-              include_job_number_field: false
+            - slack/approval:
+              message: "hey, could you sign off on this npm build real quick?"
               mentions: "UJQVBGN9G"
 
       - approve_npm:
           type: approval
-          pre-steps:
-            - slack/approval:
-              message: "hey, could you sign off on this npm build real quick?"
-              mentions: "UJQVBGN9G"
-              requires:
           requires:
           - playground/npmbuild_and_persist
       - pantheon/push:
@@ -37,6 +32,7 @@ workflows:
             - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
+            - approve_npm
       - playground/backstop:
           requires:
             - pantheon/push
