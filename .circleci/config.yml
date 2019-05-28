@@ -28,7 +28,7 @@ workflows:
       - approve_dev_env:
           type: approval
           requires:
-          - pantheon/push
+          - playground/backstop
       - deploy_to_test:
           requires:
           - approve_dev_env
