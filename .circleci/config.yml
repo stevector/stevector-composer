@@ -55,7 +55,3 @@ jobs:
         name: Authenticate with Pantheon's CLI using a machine token
         command: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
     - run: terminus env:deploy $TERMINUS_SITE.test --note="automatic deployment from CI"  --sync-content --cc
-  approval-notification:
-    description: Notify Slack about an awaiting approval job
-    executor: alpine    
-    
