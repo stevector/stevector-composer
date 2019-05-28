@@ -25,11 +25,14 @@ workflows:
       - playground/backstop:
           requires:
             - pantheon/push
+      - approve_dev_env:
+          type: approval
       - deploy_to_test:
           requires:
-          - playground/backstop
-          branches:
-            only: "master"
+          - approve_dev_env
+          filters:
+            branches:
+              only: "master"
 
 orbs:
   playground: fauxalgore/playground@0.0.2
