@@ -8,15 +8,6 @@ workflows:
           package_lock_location: "web/wp-content/themes/stevector-sage"
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
           build_command: "npm run build:production"
-      - slack/approval-notification:
-          message: "hey, could you sign off on this npm build real quick?"
-          mentions: "UJQVBGN9G"
-          requires:
-            - playground/npmbuild_and_persist
-      - approve_npm:
-          type: approval
-          requires:
-          - playground/npmbuild_and_persist
       - pantheon/push:
           checkout: false
           pre-steps:
@@ -31,14 +22,23 @@ workflows:
             - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
-            - approve_npm
       - playground/backstop:
           requires:
             - pantheon/push
+      # @todo, why doesn't this job take the param for author.
+      # or icon_url or icon_emoji for that matter.
+      - slack/approval-notification:
+          message: "hey, could you sign off on this deployment real quick?"
+          mentions: "UJQVBGN9G"
+          requires:
+          - playground/backstop
       - approve_dev_env:
           type: approval
           requires:
           - playground/backstop
+          filters:
+            branches:
+              only: "master"
       - deploy_to_test:
           requires:
           - approve_dev_env
@@ -52,6 +52,7 @@ orbs:
   # for Orbs that might become stable elsewhere.
   playground: fauxalgore/playground@0.0.2
   pantheon: pantheon-systems/pantheon@0.0.2
+  # https://circleci.com/orbs/registry/orb/circleci/slack
   slack: circleci/slack@2.5.1
 
 jobs:
