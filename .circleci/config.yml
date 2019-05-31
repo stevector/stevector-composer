@@ -54,7 +54,7 @@ orbs:
   # code. https://github.com/fauxalgore/orbs This repo is a playground
   # for Orbs that might become stable elsewhere.
   playground: fauxalgore/playground@0.0.2
-  pantheon: pantheon-systems/pantheon@0.0.2
+  pantheon: pantheon-systems/pantheon@dev:commit-message
   # https://circleci.com/orbs/registry/orb/circleci/slack
   slack: circleci/slack@2.5.1
 
