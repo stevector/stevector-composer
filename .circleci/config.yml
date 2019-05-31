@@ -50,7 +50,7 @@ workflows:
               only: "master"
 
 orbs:
-  # fauxalgore is a joke username where I publish experimental
+  # fauxalgore is an alternate username where I publish experimental
   # code. https://github.com/fauxalgore/orbs This repo is a playground
   # for Orbs that might become stable elsewhere.
   playground: fauxalgore/playground@0.0.2
