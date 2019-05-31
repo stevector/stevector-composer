@@ -54,6 +54,7 @@ orbs:
   # code. https://github.com/fauxalgore/orbs This repo is a playground
   # for Orbs that might become stable elsewhere.
   playground: fauxalgore/playground@0.0.2
+  # https://github.com/pantheon-systems/circleci-orb
   pantheon: pantheon-systems/pantheon@dev:commit-message
   # https://circleci.com/orbs/registry/orb/circleci/slack
   slack: circleci/slack@2.5.1
@@ -67,7 +68,3 @@ jobs:
         name: Authenticate with Pantheon's CLI using a machine token
         command: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
     - run: terminus env:deploy $TERMINUS_SITE.test --note="automatic deployment from CI"  --sync-content --cc
-#  slack_notify:
-#    executor: alpine
-#    steps:
-#      - slack/notify
