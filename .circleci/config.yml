@@ -25,7 +25,7 @@ workflows:
       - playground/backstop:
           requires:
             - pantheon/push
-      # @todo, why doesn't this job take the param for author.
+      # @todo, why doesn't this job take the param for author?
       # or icon_url or icon_emoji for that matter.
       - slack/approval-notification:
           message: "hey, could you sign off on this deployment real quick?"
