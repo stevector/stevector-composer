@@ -48,13 +48,34 @@ workflows:
           filters:
             branches:
               only: "master"
+      - slack/approval-notification:
+          message: "hey, could you sign off on this deployment real quick?"
+          mentions: "UJQVBGN9G"
+          requires:
+          - deploy_to_test
+          filters:
+            branches:
+              only: "master"
+      - approve_test_env:
+          type: approval
+          requires:
+          - deploy_to_test
+          filters:
+            branches:
+              only: "master"
+      - deploy_to_live:
+          requires:
+          - approve_test_env
+          filters:
+            branches:
+              only: "master"
 
 orbs:
   # fauxalgore is a joke username where I publish experimental
   # code. https://github.com/fauxalgore/orbs This repo is a playground
   # for Orbs that might become stable elsewhere.
   playground: fauxalgore/playground@0.0.2
-  pantheon: pantheon-systems/pantheon@0.0.2
+  pantheon: pantheon-systems/pantheon@dev:pr-commenting
   # https://circleci.com/orbs/registry/orb/circleci/slack
   slack: circleci/slack@2.5.1
 
@@ -66,7 +87,17 @@ jobs:
     - run:
         name: Authenticate with Pantheon's CLI using a machine token
         command: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+    - run: echo "I should update the --note field to account for commit messages"
     - run: terminus env:deploy $TERMINUS_SITE.test --note="automatic deployment from CI"  --sync-content --cc
+  deploy_to_live:
+    docker:
+    - image: quay.io/pantheon-public/build-tools-ci:5.x
+    steps:
+    - run:
+        name: Authenticate with Pantheon's CLI using a machine token
+        command: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+    - run: echo "I should update the --note field to account for commit messages"
+    - run: terminus env:deploy $TERMINUS_SITE.live --note="automatic deployment from CI"  --sync-content --cc
 #  slack_notify:
 #    executor: alpine
 #    steps:
