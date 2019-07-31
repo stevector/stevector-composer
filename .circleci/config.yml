@@ -27,6 +27,9 @@ workflows:
             - pantheon/push
       # @todo, why doesn't this job take the param for author.
       # or icon_url or icon_emoji for that matter.
+      - backup_test_env:
+          requires:
+          - playground/backstop
       - slack/approval-notification:
           message: "hey, could you sign off on this deployment real quick?"
           mentions: "UJQVBGN9G"
@@ -45,6 +48,7 @@ workflows:
       - deploy_to_test:
           requires:
           - approve_dev_env
+          - backup_test_env
           filters:
             branches:
               only: "master"
@@ -80,6 +84,14 @@ orbs:
   slack: circleci/slack@2.5.1
 
 jobs:
+  backup_test_env:
+    docker:
+    - image: quay.io/pantheon-public/build-tools-ci:5.x
+    steps:
+    - run:
+        name: Authenticate with Pantheon's CLI using a machine token
+        command: terminus -n auth:login --machine-token="$TERMINUS_TOKEN"
+    - run: terminus backup:create $TERMINUS_SITE.test
   deploy_to_test:
     docker:
     - image: quay.io/pantheon-public/build-tools-ci:5.x
