@@ -1,4 +1,4 @@
-# Stevector.com
+# stevector.com
 
 A Composer-based repo for the WordPress site [stevector.com](https://www.stevector.com/).
 
