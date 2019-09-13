@@ -31,7 +31,7 @@ workflows:
           requires:
           - playground/backstop
       - slack/approval-notification:
-          message: "hey, could you look at https://dev-stevector-composer.pantheonsite.io/ and sign off on a deployment to `test` real quick?"
+          message: "hey, could you look at https://dev-stevector-composer.pantheonsite.io/ and sign off on a deployment to Test real quick?"
           mentions: "UJQVBGN9G"
           requires:
           - playground/backstop
@@ -53,7 +53,7 @@ workflows:
             branches:
               only: "master"
       - slack/approval-notification:
-          message: "hey, could you look at https://test-stevector-composer.pantheonsite.io/ and sign off on a deployment to `live` real quick?"
+          message: "hey, could you look at https://test-stevector-composer.pantheonsite.io/ and sign off on a deployment to Live real quick?"
           mentions: "UJQVBGN9G"
           requires:
           - deploy_to_test
