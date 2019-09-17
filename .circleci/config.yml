@@ -30,6 +30,9 @@ workflows:
       - backup_test_env:
           requires:
           - playground/backstop
+          filters:
+            branches:
+              only: "master"          
       - slack/approval-notification:
           message: "hey, could you look at https://dev-stevector-composer.pantheonsite.io/ and sign off on a deployment to Test real quick?"
           mentions: "UJQVBGN9G"
