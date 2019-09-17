@@ -38,6 +38,9 @@ workflows:
           filters:
             branches:
               only: "master"
+          pre-steps:
+            # Warm the cache in the environment.
+            - run: curl https://dev-stevector-composer.pantheonsite.io/
       - approve_dev_env:
           type: approval
           requires:
@@ -60,6 +63,9 @@ workflows:
           filters:
             branches:
               only: "master"
+          pre-steps:
+            # Warm the cache in the environment.
+            - run: curl https://test-stevector-composer.pantheonsite.io/
       - approve_test_env:
           type: approval
           requires:
