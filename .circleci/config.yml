@@ -22,6 +22,13 @@ workflows:
             - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
+      - gcp-cli/install_and_initialize_cli:
+          #requires:
+            #- pantheon/push
+          context: myContext
+          executor: gcp-cli/default
+          post-steps:
+            - run: gcloud help
       - playground/backstop:
           requires:
             - pantheon/push
@@ -91,6 +98,11 @@ orbs:
   pantheon: pantheon-systems/pantheon@0.1.0
   # https://circleci.com/orbs/registry/orb/circleci/slack
   slack: circleci/slack@2.5.1
+  gcp-cli: circleci/gcp-cli@1.0.0
+version: 2.1
+
+
+
 
 jobs:
   backup_test_env:
