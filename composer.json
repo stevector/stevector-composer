@@ -75,7 +75,10 @@
     "autoload": {
         "classmap": [
             "scripts/composer/ScriptHandler.php"
-        ]
+        ],
+        "files": [
+            "hackyproxyloader.php"
+          ]
     },
     "scripts": {
         "build-assets": [

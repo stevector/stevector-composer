@@ -1622,6 +1622,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -2205,6 +2206,7 @@
                 "extension",
                 "wordpress"
             ],
+            "abandoned": true,
             "time": "2017-07-19T11:34:14+00:00"
         },
         {
@@ -5020,6 +5022,7 @@
                 "code",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2016-10-24T13:23:32+00:00"
         },
         {
@@ -5074,6 +5077,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2017-07-11T19:19:12+00:00"
         }
     ],
