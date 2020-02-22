@@ -16,7 +16,7 @@
         },
         "2": {
             "type": "vcs",
-            "url": "https://github.com/octahedroid/hacky-proxy"
+            "url": "https://github.com/stevector/hacky-proxy"
           }
     },
     "require": {
@@ -25,7 +25,7 @@
         "pantheon-systems/wordpress-composer": "^5",
         "roots/wp-password-bcrypt": "^1.0.0",
         "rvtraveller/qs-composer-installer": "^1.1",
-        "stevector/hacky-proxy": "dev-master",
+        "stevector/hacky-proxy": "dev-cloud-function",
         "vlucas/phpdotenv": "^2.4.0",
         "wpackagist-plugin/debug-bar": "dev-trunk",
         "wpackagist-plugin/pantheon-advanced-page-cache": "^0.1.4",

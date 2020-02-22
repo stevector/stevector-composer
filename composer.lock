@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d074ef016dad33c7a758d7d6bc9fe22",
+    "content-hash": "168c00b862612f439d49788e8756bff4",
     "packages": [
         {
             "name": "composer/installers",
@@ -657,16 +657,16 @@
         },
         {
             "name": "stevector/hacky-proxy",
-            "version": "dev-master",
+            "version": "dev-cloud-function",
             "source": {
                 "type": "git",
-                "url": "https://github.com/octahedroid/hacky-proxy.git",
-                "reference": "067f4603d61613bdf297dbb97c5ec92c9851d2b1"
+                "url": "https://github.com/stevector/hacky-proxy.git",
+                "reference": "eb107181a9f8681a075543fe64cf0f6642c21cec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/octahedroid/hacky-proxy/zipball/067f4603d61613bdf297dbb97c5ec92c9851d2b1",
-                "reference": "067f4603d61613bdf297dbb97c5ec92c9851d2b1",
+                "url": "https://api.github.com/repos/stevector/hacky-proxy/zipball/eb107181a9f8681a075543fe64cf0f6642c21cec",
+                "reference": "eb107181a9f8681a075543fe64cf0f6642c21cec",
                 "shasum": ""
             },
             "require": {
@@ -690,10 +690,9 @@
             ],
             "description": "PoC proxying to GCP Buckets from Pantheon",
             "support": {
-                "source": "https://github.com/octahedroid/hacky-proxy/tree/master",
-                "issues": "https://github.com/octahedroid/hacky-proxy/issues"
+                "source": "https://github.com/stevector/hacky-proxy/tree/cloud-function"
             },
-            "time": "2020-02-20T19:02:44+00:00"
+            "time": "2020-02-22T06:15:56+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
