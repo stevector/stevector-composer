@@ -3,15 +3,12 @@ workflows:
   version: 2
   build_push_test:
     jobs:
-
-
       - gcp-cli/install_and_initialize_cli:
           #requires:
             #- pantheon/pus
           post-steps:
             - run: gcloud help
             - run: cd frontity && npm ci
-            
 
 orbs:
   # fauxalgore is a joke username where I publish experimental
