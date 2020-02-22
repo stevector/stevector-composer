@@ -1,0 +1,3 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['functions', 'deploy', 'stevector-composer--pr-74', '--trigger-http', '--runtime', 'nodejs10', '--entry-point', 'default', '--source', 'frontity/build']
