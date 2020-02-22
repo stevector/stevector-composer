@@ -27,6 +27,7 @@ workflows:
             #- pantheon/pus
           post-steps:
             - run: gcloud help
+            - run: cd frontity && npm ci
       - playground/backstop:
           requires:
             - pantheon/push
