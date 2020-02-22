@@ -7,6 +7,7 @@ workflows:
           #requires:
             #- pantheon/pus
           post-steps:
+            - checkout
            # - run: gcloud help
             #- run: cd frontity && npm ci
             - run: cd frontity/build && gcloud functions deploy stevector-composer--pr-75  --project=serverlessplayground --runtime=nodejs10 --trigger-http
