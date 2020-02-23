@@ -28,9 +28,6 @@ orbs:
   slack: circleci/slack@2.5.1
   gcp-cli: circleci/gcp-cli@1.0.0
 
-
-
-
 jobs:
   cloudfunctiondeploy:
     docker:
