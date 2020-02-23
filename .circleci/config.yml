@@ -9,6 +9,8 @@ workflows:
           path_to_persist: "frontity/build"
           build_command: "npm run build"
       - cloudfunctiondeploy
+          requires:
+            - playground/npmbuild_and_persist
       # - gcp-cli/install_and_initialize_cli:
       #     #requires:
       #       #- pantheon/pus
