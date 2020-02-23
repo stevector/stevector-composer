@@ -38,6 +38,9 @@ jobs:
         environment:
           STORAGE_BUCKET: pr-000.artifactor.io
     steps:
+      - run: ls -al
+      - run: cd frontity
+      - run: ls -al
       - run:
           name: Login to gcloud
           command: |
