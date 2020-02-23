@@ -44,6 +44,12 @@ jobs:
             echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
             gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
             gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+
+
+      - run:
+          name: deploy
+          command: |
+            cd frontity/build && gcloud functions deploy stevector-composer--pr-75  --project=serverlessplayground --runtime=nodejs10 --trigger-http
   backup_test_env:
     docker:
     - image: quay.io/pantheon-public/build-tools-ci:5.x
