@@ -8,7 +8,7 @@ workflows:
           package_lock_location: "frontity"
           path_to_persist: "frontity/build"
           build_command: "npm run build"
-      - cloudfunctiondeploy
+      - cloudfunctiondeploy:
           requires:
             - playground/npmbuild_and_persist
       # - gcp-cli/install_and_initialize_cli:
