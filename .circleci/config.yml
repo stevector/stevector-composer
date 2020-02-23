@@ -38,6 +38,7 @@ jobs:
         environment:
           STORAGE_BUCKET: pr-000.artifactor.io
     steps:
+      - checkout
       - run: ls -al
       - run: cd frontity
       - run: ls -al
