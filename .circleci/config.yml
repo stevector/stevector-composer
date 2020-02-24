@@ -21,7 +21,7 @@ workflows:
             - run: cd "/tmp/pantheon_repo" && git status
             - run: echo "Testing CI on master branch"
           requires:
-            - playground/npmbuild_and_persists
+            - playground/npmbuild_and_persist
 
       - playground2/npmbuild_and_persist:
           package_lock_location: "frontity"
@@ -119,7 +119,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-        - playground/setbashenv
+      - playground/setbashenv
       - run: ls -al
       - run: cd frontity && ls -al
       - run:
