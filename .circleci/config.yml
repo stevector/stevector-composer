@@ -45,7 +45,6 @@ workflows:
           requires:
             - deploy_cloud_function
 
-
       - backup_test_env:
           requires:
           - playground/backstop
