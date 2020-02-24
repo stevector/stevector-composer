@@ -29,7 +29,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://pr-75-stevector-composer.pantheonsite.io/wp-json"
+          "api": "https://test-stevector-composer.pantheonsite.io/wp-json"
         }
       }
     },
