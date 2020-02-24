@@ -30,6 +30,8 @@ workflows:
           requires:
             - pantheon/push
           pre-steps:
+            - attach_workspace:
+                at: .
             - run: playground/setbashenv
             - run: cd frontity && sed -i -e "s/test-${TERMINUS_SITE}/${TERMINUS_ENV}-${TERMINUS_SITE}/g" frontity.settings.js
             - run: cat frontity.settings.js
