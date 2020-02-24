@@ -29,6 +29,10 @@ workflows:
           build_command: "npm run build"
           requires:
             - pantheon/push
+          pre-steps:
+            - run: playground/setbashenv
+            - run: cd frontity && sed -i -e "s/test-${TERMINUS_SITE}/${TERMINUS_ENV}-${TERMINUS_SITE}/g" frontity.settings.js
+            - run: cat frontity.settings.js
       - deploy_cloud_function:
           requires:
             - playground2/npmbuild_and_persist
