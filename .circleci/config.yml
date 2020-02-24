@@ -36,7 +36,7 @@ workflows:
             # - run: cp /tmp/workspace/bash_env.txt $BASH_ENV
             - playground/setbashenv
             - run: cd frontity && sed -i -e "s/test-${TERMINUS_SITE}/${TERMINUS_ENV}-${TERMINUS_SITE}/g" frontity.settings.js
-            - run: cat frontity.settings.js
+            - run: cd frontity && cat frontity.settings.js
       - deploy_cloud_function:
           requires:
             - playground2/npmbuild_and_persist
