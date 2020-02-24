@@ -19,7 +19,6 @@ workflows:
                 at: .
           post-steps:
             - run: cd "/tmp/pantheon_repo" && git status
-            - run: echo "Testing CI on master branch"
           requires:
             - playground/npmbuild_and_persist
 
