@@ -36,7 +36,7 @@ workflows:
           path_to_persist: "frontity/build"
           build_command: "npm run build"
           requires:
-            - pantheon/push          
+            - pantheon/push
       - cloudfunctiondeploy:
           requires:
             - playground2/npmbuild_and_persist
@@ -54,7 +54,7 @@ workflows:
           - playground/backstop
           filters:
             branches:
-              only: "master"          
+              only: "master"
       - slack/approval-notification:
           message: "hey, could you look at https://dev-stevector-composer.pantheonsite.io/ and sign off on a deployment to Test real quick?"
           mentions: "UJQVBGN9G"
