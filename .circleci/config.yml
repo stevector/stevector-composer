@@ -123,7 +123,7 @@ jobs:
           at: .
       - playground/setbashenv
       - run: ls -al
-      - run: cd frontity && ls -al
+      - run: cd frontity/build && ls -al
       - run:
           name: Login to gcloud
           command: |
