@@ -3,12 +3,7 @@ workflows:
   version: 2
   build_push_test:
     jobs:
-
-
-
-
-
-
+      # Eventually this job should come from a CircleCI maintained orb.
       - playground/npmbuild_and_persist:
           package_lock_location: "web/wp-content/themes/stevector-sage"
           path_to_persist: "web/wp-content/themes/stevector-sage/dist"
@@ -26,35 +21,31 @@ workflows:
             - run: cd "/tmp/pantheon_repo" && git status
             - run: echo "Testing CI on master branch"
           requires:
-            - playground/npmbuild_and_persist
+            - playground/npmbuild_and_persists
 
-
-
-            # Eventually this job should come from a CircleCI maintained orb.
       - playground2/npmbuild_and_persist:
           package_lock_location: "frontity"
           path_to_persist: "frontity/build"
           build_command: "npm run build"
           requires:
             - pantheon/push
-      - cloudfunctiondeploy:
+      - deploy_cloud_function:
           requires:
             - playground2/npmbuild_and_persist
 
-
-
-
       - playground/backstop:
           requires:
-            - pantheon/push
-      # @todo, why doesn't this job take the param for author.
-      # or icon_url or icon_emoji for that matter.
+            - deploy_cloud_function
+
+
       - backup_test_env:
           requires:
           - playground/backstop
           filters:
             branches:
               only: "master"
+      # @todo, why doesn't this job take the param for author.
+      # or icon_url or icon_emoji for that matter.
       - slack/approval-notification:
           message: "hey, could you look at https://dev-stevector-composer.pantheonsite.io/ and sign off on a deployment to Test real quick?"
           mentions: "UJQVBGN9G"
@@ -105,26 +96,6 @@ workflows:
             branches:
               only: "master"
 
-
-
-
-
-
-
-
-
-      # - gcp-cli/install_and_initialize_cli:
-      #     #requires:
-      #       #- pantheon/pus
-      #     post-steps:
-      #       - run: gcloud auth login
-      #       - checkout
-      #      # - run: gcloud help
-      #       #- run: cd frontity && npm ci
-      #       - run: cd frontity/build && gcloud functions deploy stevector-composer--pr-75  --project=serverlessplayground --runtime=nodejs10 --trigger-http
-
-
-
 orbs:
   # fauxalgore is a joke username where I publish experimental
   # code. https://github.com/fauxalgore/orbs This repo is a playground
@@ -137,15 +108,14 @@ orbs:
   gcp-cli: circleci/gcp-cli@1.0.0
 
 jobs:
-  cloudfunctiondeploy:
+  deploy_cloud_function:
     docker:
       - image: google/cloud-sdk
-        environment:
-          STORAGE_BUCKET: pr-000.artifactor.io
     steps:
       - checkout
       - attach_workspace:
           at: .
+        - playground/setbashenv
       - run: ls -al
       - run: cd frontity && ls -al
       - run:
@@ -157,8 +127,9 @@ jobs:
 
       - run:
           name: deploy
+          # make a variable for serverlessplayground and runtime, and probably everything in gcloud functions deploy.
           command: |
-            cd frontity/build && gcloud functions deploy stevector-composer--pr-75  --project=serverlessplayground --runtime=nodejs10 --trigger-http
+            cd frontity/build && gcloud functions deploy ${$TERMINUS_SITE}--${$TERMINUS_ENV}  --project=serverlessplayground --runtime=nodejs10 --trigger-http
   backup_test_env:
     docker:
     - image: quay.io/pantheon-public/build-tools-ci:5.x
@@ -189,7 +160,3 @@ jobs:
     - run: terminus env:deploy $TERMINUS_SITE.live --note="automatic deployment from CI"  --sync-content --cc
     # This cache clear shouldn't be necessary but run it just to be safe.
     - run: terminus env:clear-cache $TERMINUS_SITE.live    
-#  slack_notify:
-#    executor: alpine
-#    steps:
-#      - slack/notify
