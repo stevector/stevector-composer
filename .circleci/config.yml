@@ -135,7 +135,7 @@ jobs:
           name: deploy
           # @todo make a variable for serverlessplayground and runtime, and probably everything in gcloud functions deploy.
           command: |
-            gcloud functions deploy ${TERMINUS_SITE}--${TERMINUS_ENV}  --project=serverlessplayground --runtime=nodejs10 --trigger-http  --allow-unauthenticated  --entry-point=default --source=frontity/build
+            gcloud functions deploy ${TERMINUS_SITE}--${TERMINUS_ENV}  --project=serverlessplayground --runtime=nodejs10 --trigger-http  --allow-unauthenticated  --entry-point=default --source=frontity/build --set-env-vars="TERMINUS_SITE=${TERMINUS_SITE},TERMINUS_ENV=${TERMINUS_ENV}"
   backup_test_env:
     docker:
     - image: quay.io/pantheon-public/build-tools-ci:5.x
