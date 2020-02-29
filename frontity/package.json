@@ -1,0 +1,24 @@
+{
+  "name": "frontity-fun",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontity project",
+  "keywords": [
+    "frontity"
+  ],
+  "scripts": {
+    "dev": "frontity dev",
+    "build": "frontity build && cp build/server.js build/index.js",
+    "serve": "frontity serve"
+    
+  },
+  "prettier": {},
+  "dependencies": {
+    "frontity": "^1.4.4",
+    "@frontity/core": "^1.4.1",
+    "@frontity/wp-source": "^1.5.0",
+    "@frontity/tiny-router": "^1.0.18",
+    "@frontity/html2react": "^1.1.15",
+    "@frontity/mars-theme": "./packages/mars-theme"
+  }
+}
