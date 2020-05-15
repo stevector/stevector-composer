@@ -30,10 +30,9 @@ workflows:
             - pantheon/push
           pre-steps:
             - playground/setbashenv
-      - deploy_cloud_function            
-#      - deploy_cloud_function:
-#           requires:
-#             - playground2/npmbuild_and_persist
+      - deploy_cloud_function:
+           requires:
+             - playground2/npmbuild_and_persist
 
       - playground/backstop:
           requires:
