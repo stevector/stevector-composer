@@ -38,15 +38,15 @@
   },
   "devDependencies": {
     "autoprefixer": "~8.2.0",
-    "browser-sync": "~2.24.7",
+    "browser-sync": "^2.26.5",
     "browsersync-webpack-plugin": "^0.6.0",
     "bs-html-injector": "~3.0",
     "buble-loader": "^0.4.1",
     "cache-loader": "~1.2.5",
     "clean-webpack-plugin": "^0.1.18",
-    "copy-globs-webpack-plugin": "^0.2.0",
+    "copy-globs-webpack-plugin": "^0.3.0",
     "css-loader": "^0.28.9",
-    "cssnano": "~4.0.5",
+    "cssnano": "^4.1.10",
     "eslint": "~4.19.1",
     "eslint-loader": "~1.9",
     "eslint-plugin-import": "~2.14.0",
@@ -54,9 +54,9 @@
     "file-loader": "^1.1.6",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "imagemin-mozjpeg": "~7.0.0",
-    "imagemin-webpack-plugin": "~2.2.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "import-glob": "~1.5",
-    "node-sass": "~4.9.4",
+    "node-sass": "^4.12.0",
     "postcss-loader": "~2.1.0",
     "postcss-safe-parser": "~3.0",
     "resolve-url-loader": "~2.3.1",
@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "bootstrap": "v4.3.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "popper.js": "^1.14.7"
   }
 }
