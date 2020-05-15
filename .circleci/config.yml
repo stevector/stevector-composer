@@ -26,8 +26,8 @@ workflows:
           package_lock_location: "frontity"
           path_to_persist: "frontity/build"
           build_command: "npm run build"
-          requires:
-            - pantheon/push
+#           requires:
+#             - pantheon/push
           pre-steps:
             - playground/setbashenv
       - deploy_cloud_function:
@@ -113,7 +113,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - playground/setbashenv
+ #     - playground/setbashenv
       - run: ls -al
       - run: cd frontity/build && ls -al
       - run:
