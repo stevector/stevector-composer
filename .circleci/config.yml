@@ -44,8 +44,6 @@ workflows:
           filters:
             branches:
               only: "master"
-      # @todo, why doesn't this job take the param for author.
-      # or icon_url or icon_emoji for that matter.
       - slack/approval-notification:
           message: "hey, could you look at https://dev-stevector-composer.pantheonsite.io/ and sign off on a deployment to Test real quick?"
           mentions: "UJQVBGN9G"
